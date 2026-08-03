@@ -1,0 +1,32 @@
+﻿<div class ="project-badge" 
+     style="background-color: @Color"
+     @onclick="ProjectClicked">
+    @Name
+</div>
+
+<style>
+    .project-badge{
+        border: 1px solid #145199;
+        margin-bottom: 35px;
+        padding: 10px;
+    }
+</style>
+
+@code {
+    [Parameter]
+    public int ProjectId { get; set; }
+
+    [Parameter]
+    public string Name { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Color { get; set; } = "#7FBF7F";
+
+    [Parameter]
+    public EventCallback<int> OnSelected { get; set; }
+
+    private async Task ProjectClicked()
+    {
+        await OnSelected.InvokeAsync(ProjectId);
+    }
+}

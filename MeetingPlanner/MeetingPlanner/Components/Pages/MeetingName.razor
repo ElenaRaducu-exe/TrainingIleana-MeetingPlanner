@@ -1,0 +1,17 @@
+﻿@page "/meetings/{selectedMeetingName}"
+
+@inject NavigationManager navigation
+
+<button type="button" @onclick="NavigateBack">BACK</button>
+
+<p>Selected meetingName: @selectedMeetingName</p>
+
+@code {
+    [Parameter]
+    public string selectedMeetingName { get; set; }
+
+    private void NavigateBack()
+    {
+        navigation.NavigateTo($"/meetings");
+    }
+}

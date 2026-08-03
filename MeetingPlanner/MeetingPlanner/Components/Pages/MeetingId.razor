@@ -1,0 +1,51 @@
+﻿@page "/meetings/{selectedId:int}"
+
+@using MeetingPlanner.Classes
+@using MeetingPlanner.Services
+
+@inject NavigationManager navigation
+@inject MeetingsService meetingService
+@inject ProjectsService projectsService
+
+<button type="button" @onclick="NavigateBack">BACK</button>
+
+<br />
+<br />
+
+<!--
+@{
+    // nerecomandat - ce este in afara sectiunii @code se re-randeaza la fiecare StateHasChanged
+    var meetingItem = meetingService.GetMeetingCardByID(selectedId);
+}
+-->
+
+<ProjectBadge 
+        ProjectId = "@projectItem.ProjectId"
+        Name="@projectItem.ProjectName" />
+        <br />
+
+<MeetingCard Id="@meetingItem.Id"
+             MeetingName="@meetingItem.MeetingTitle"
+             Date="@meetingItem.Date"
+             projectId="@meetingItem.ProjectId" 
+             ProjectName="@projectItem.ProjectName"/>
+
+@code {
+    [Parameter]
+    public int selectedId { get; set; }
+
+    public MeetingItem? meetingItem;
+    public ProjectItem? projectItem; 
+
+    protected override void OnParametersSet()
+    {
+        meetingItem = meetingService.GetMeetingCardByID(selectedId);
+
+        projectItem = projectsService.GetProjectById(meetingItem.ProjectId);
+    }
+    
+    private void NavigateBack()
+    {
+        navigation.NavigateTo($"/meetings");
+    }
+}

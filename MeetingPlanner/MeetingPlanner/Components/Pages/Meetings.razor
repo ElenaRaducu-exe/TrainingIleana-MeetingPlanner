@@ -1,0 +1,72 @@
+﻿@page "/meetings"
+
+@inject NavigationManager navigation
+@inject MeetingsService meetingService
+@inject ProjectsService projectsService
+@inject MeetingStateService meetingStateService
+
+@using MeetingPlanner.Services
+@using MeetingPlanner.Classes
+
+<h1>Meetings</h1>
+
+<br/> 
+<br/> 
+
+<p>List of meetings</p>
+
+@if (selectedProject == null)
+{
+    <p>Nu s-a selectat niciun proiect!</p>
+}
+else
+{
+    <p>Proiectul selectat este: @selectedProject.ProjectName</p>
+
+    <ProjectBadge 
+        ProjectId = "@selectedProject.ProjectId"
+        Name="@selectedProject.ProjectName" />
+
+        <br />
+}
+
+@foreach (var meetingItem in meetingService.getMeetings())
+{
+    var projectItem = projectsService.GetProjectById(meetingItem.ProjectId);
+
+     <ProjectBadge 
+        ProjectId = "@projectItem.ProjectId"
+        Name="@projectItem.ProjectName" />
+
+        <br />
+
+    <MeetingCard 
+        Id = "@meetingItem.Id"
+        MeetingName="@meetingItem.MeetingTitle"
+        Date="@meetingItem.Date"
+        ProjectId="@meetingItem.ProjectId"
+        ProjectName="@projectItem.ProjectName"
+        OnSelectedId = "SelectMeetingId"  />
+}
+
+@code {
+    private string? selectedMeetingName { get; set; }  
+    private int selectedId { get; set; }  
+
+    private MeetingItem? selectedItem { get; set; }
+    public ProjectItem? selectedProject; 
+
+    /*
+    private void SelectedMeetingName(string title)
+    {
+        selectedMeetingName = title;
+        //navigation.NavigateTo($"/meetings/{selectedMeetingName}");
+        }*/
+
+    private void SelectMeetingId(int id)
+    {
+        selectedId = id;
+        navigation.NavigateTo($"/meetings/{selectedId}");
+        //meetingService.GetMeetingCardByID(selectedId);
+    }
+}

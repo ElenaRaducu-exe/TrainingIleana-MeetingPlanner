@@ -1,0 +1,31 @@
+﻿@page "/projects"
+
+@using MeetingPlanner.Services
+@using MeetingPlanner.Components
+@using MeetingPlanner.Classes
+
+@inject MeetingStateService meetingStateService
+@inject ProjectsService projectsService
+
+<h1>Projects</h1>
+
+<p>Coming soon...</p>
+
+<p>List of projects</p>
+
+@foreach(var project in projectsService.getProjects())
+{
+        <ProjectBadge 
+            ProjectId = "@project.ProjectId"
+            Name="@project.ProjectName" 
+            OnSelected = "SelectedProject"/>
+}
+
+<p>Id-ul proiectului selectat este: @meetingStateService.SelectedProject</p>
+
+@code {
+    private void SelectedProject(int id)
+    {
+        meetingStateService.SetProject(id);
+    }
+}
