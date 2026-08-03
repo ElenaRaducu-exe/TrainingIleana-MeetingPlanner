@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
+      "projectUniqueName": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
       "projectName": "MeetingPlanner",
-      "projectPath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
+      "projectPath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
       "packagesPath": "C:\\Users\\elenar\\.nuget\\packages\\",
-      "outputPath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\MeetingPlanner\\MeetingPlanner\\obj\\",
+      "outputPath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

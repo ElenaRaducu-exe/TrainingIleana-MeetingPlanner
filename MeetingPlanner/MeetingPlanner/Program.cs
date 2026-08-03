@@ -7,9 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddSingleton<MeetingsService>();
-builder.Services.AddSingleton<ProjectsService>();
-builder.Services.AddSingleton<MeetingStateService>();
+builder.Services.AddScoped<MeetingsService>();
+builder.Services.AddScoped<ProjectsService>();
+builder.Services.AddScoped<MeetingStateService>();
 
 var app = builder.Build();
 

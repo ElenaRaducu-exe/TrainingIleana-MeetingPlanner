@@ -8,6 +8,8 @@
 @using MeetingPlanner.Services
 @using MeetingPlanner.Classes
 
+@implements IDisposable
+
 <h1>Meetings</h1>
 
 <br/> 
@@ -22,23 +24,18 @@
 else
 {
     <p>Proiectul selectat este: @selectedProject.ProjectName</p>
-
-    <ProjectBadge 
-        ProjectId = "@selectedProject.ProjectId"
-        Name="@selectedProject.ProjectName" />
-
-        <br />
 }
 
 @foreach (var meetingItem in meetingService.getMeetings())
 {
     var projectItem = projectsService.GetProjectById(meetingItem.ProjectId);
 
+    if(projectItem != null){
      <ProjectBadge 
         ProjectId = "@projectItem.ProjectId"
-        Name="@projectItem.ProjectName" />
-
+        Name="@projectItem.ProjectName"  />
         <br />
+    
 
     <MeetingCard 
         Id = "@meetingItem.Id"
@@ -47,6 +44,7 @@ else
         ProjectId="@meetingItem.ProjectId"
         ProjectName="@projectItem.ProjectName"
         OnSelectedId = "SelectMeetingId"  />
+    }
 }
 
 @code {
@@ -54,7 +52,7 @@ else
     private int selectedId { get; set; }  
 
     private MeetingItem? selectedItem { get; set; }
-    public ProjectItem? selectedProject; 
+    private ProjectItem? selectedProject; 
 
     /*
     private void SelectedMeetingName(string title)
@@ -68,5 +66,37 @@ else
         selectedId = id;
         navigation.NavigateTo($"/meetings/{selectedId}");
         //meetingService.GetMeetingCardByID(selectedId);
+    }
+
+    // actualizeaza selectedProject 
+    private void LoadSelectedProject()
+    {
+        if(meetingStateService.SelectedProjectId.HasValue)
+        {
+            int id = meetingStateService.SelectedProjectId.Value;
+            selectedProject = projectsService.GetProjectById(id);
+        }
+    }
+
+    // se executa cand se incarca pagina (componenta) Meetings
+    protected override void OnInitialized()
+    {
+        // componneta s-a abonat la evenimentul OnChange 
+        meetingStateService.OnChange += HandleStateChanged; 
+        LoadSelectedProject();
+    }
+
+    // metoda executa cand se declanseaza OnChange
+    private void HandleStateChanged()
+    {
+        LoadSelectedProject();
+
+        // re-randarea componentei -> actualizarea interfetei 
+        StateHasChanged(); 
+    }
+
+    public void Dispose()
+    {
+        meetingStateService.OnChange -= HandleStateChanged;
     }
 }

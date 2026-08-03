@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fkco1OuDJWg=",
+  "dgSpecHash": "pEr2lJz2Dis=",
   "success": true,
-  "projectFilePath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
+  "projectFilePath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elenar\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.9\\microsoft.aspnetcore.app.internal.assets.10.0.9.nupkg.sha512"
   ],
