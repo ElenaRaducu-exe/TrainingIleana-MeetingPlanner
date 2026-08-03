@@ -1,4 +1,4 @@
-﻿@page "/meetings/{selectedId:int}"
+﻿@page "/meetings/{meetingId:int}"
 
 @using MeetingPlanner.Classes
 @using MeetingPlanner.Services
@@ -32,14 +32,14 @@
 
 @code {
     [Parameter]
-    public int selectedId { get; set; }
+    public int meetingId { get; set; }
 
     public MeetingItem? meetingItem;
     public ProjectItem? projectItem; 
 
     protected override void OnParametersSet()
     {
-        meetingItem = meetingService.GetMeetingCardByID(selectedId);
+        meetingItem = meetingService.GetMeetingCardByID(meetingId);
 
         projectItem = projectsService.GetProjectById(meetingItem.ProjectId);
     }
