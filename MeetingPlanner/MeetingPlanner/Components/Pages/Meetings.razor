@@ -1,14 +1,14 @@
 ﻿@page "/meetings"
 
 @inject NavigationManager navigation
-@inject MeetingsService meetingService
-@inject ProjectsService projectsService
 @inject MeetingStateService meetingStateService
+@inject IMeetingService iMeetingService
 
 @using MeetingPlanner.Services
 @using MeetingPlanner.Classes
+@using MeetingPlanner.Models 
 
-@implements IDisposable
+@implements IDisposable 
 
 <h1>Meetings</h1>
 
@@ -23,62 +23,26 @@
 }
 else
 {
-    <p>Proiectul selectat este: @selectedProject.ProjectName</p>
+    <p>Proiectul selectat este: @selectedProject.Name</p>
 }
 
-@foreach (var meetingItem in meetingService.getMeetings())
+@foreach (var meeting in meetingList)
 {
-    var projectItem = projectsService.GetProjectById(meetingItem.ProjectId);
-
-    if(projectItem != null){
-     <ProjectBadge 
-        ProjectId = "@projectItem.ProjectId"
-        Name="@projectItem.ProjectName"  />
-        <br />
-    
-
     <MeetingCard 
-        Id = "@meetingItem.Id"
-        MeetingName="@meetingItem.MeetingTitle"
-        Date="@meetingItem.Date"
-        ProjectId="@meetingItem.ProjectId"
-        ProjectName="@projectItem.ProjectName"
+        Id = "@meeting.Id"
+        Title="@meeting.Title"
+        Date="@meeting.Date"
+        ProjectID="@meeting.ProjectID"
+        Participants="@meeting.Participants"
         OnSelectedId = "SelectMeetingId"  />
-    }
 }
 
 @code {
-    private string? selectedMeetingName { get; set; }  
     private int selectedId { get; set; }  
+    private Meeting? selectedItem { get; set; }
+    private Project? selectedProject;
+    private List<Meeting> meetingList = []; 
 
-    private MeetingItem? selectedItem { get; set; }
-    private ProjectItem? selectedProject; 
-
-    /*
-    private void SelectedMeetingName(string title)
-    {
-        selectedMeetingName = title;
-        //navigation.NavigateTo($"/meetings/{selectedMeetingName}");
-        }*/
-
-    private void SelectMeetingId(int id)
-    {
-        selectedId = id;
-        navigation.NavigateTo($"/meetings/{selectedId}");
-        //meetingService.GetMeetingCardByID(selectedId);
-    }
-
-    // actualizeaza selectedProject 
-    private void LoadSelectedProject()
-    {
-        if(meetingStateService.SelectedProjectId.HasValue)
-        {
-            int id = meetingStateService.SelectedProjectId.Value;
-            selectedProject = projectsService.GetProjectById(id);
-        }
-    }
-
-    // se executa cand se incarca pagina (componenta) Meetings
     protected override void OnInitialized()
     {
         // componneta s-a abonat la evenimentul OnChange 
@@ -86,10 +50,40 @@ else
         LoadSelectedProject();
     }
 
+    protected override async Task OnInitializedAsync()
+    {
+        if (selectedProject == null)
+        {
+            meetingList = await iMeetingService.GetMeetingsAsync();
+        }
+        else
+        {
+            meetingList = await iMeetingService.GetMeetingsByProjectAsync(selectedProject.Id);
+        }
+    } 
+
+    private void SelectMeetingId(int id)
+    {
+        selectedId = id;
+        navigation.NavigateTo($"/meetings/{selectedId}");
+    }
+
+    // actualizeaza selectedProject 
+    private async void LoadSelectedProject()
+    {
+        if(meetingStateService.SelectedProjectId.HasValue)
+        {
+            int id = meetingStateService.SelectedProjectId.Value;
+            selectedProject = await iMeetingService.GetProjectByIdAsync(id);
+        }
+    }
+
     // metoda executa cand se declanseaza OnChange
-    private void HandleStateChanged()
+    private async void HandleStateChanged()
     {
         LoadSelectedProject();
+        
+        meetingList = await iMeetingService.GetMeetingsByProjectAsync(selectedProject.Id);
 
         // re-randarea componentei -> actualizarea interfetei 
         StateHasChanged(); 

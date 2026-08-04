@@ -1,20 +1,24 @@
 ﻿@inject NavigationManager navigation
 
 <div class="meeting-card" @onclick="CardClicked">
-    <h3>@MeetingName</h3>
+    <h3>@Title</h3>
 
     @if(Date.Date == DateTime.Today)
     {
-        <span class="today-label">TODAY</span>
-        <p>Date: @Date.ToString("dd MMM yyyy")</p>
+        <p>TODAY: Date: @Date.ToString("dd MMM yyyy")</p>
     }
     else
     {
         <p>Date: @Date.ToString("dd MMM yyyy")</p>
     }
 
-    <p>ID proiect: @projectId</p>
-    <p>Nume proiect: @ProjectName</p>
+    <p>ID proiect: @ProjectID</p>
+
+    <p>Participants:  </p>
+    @foreach(var participant in Participants)
+    {
+        <p>@participant </p>
+    }
 
 </div>
 
@@ -32,19 +36,16 @@
     public int Id { get; set; }
 
     [Parameter]
-    public string MeetingName { get; set; } = string.Empty; 
+    public string Title { get; set; } = string.Empty; 
 
     [Parameter]
     public DateTime Date { get; set; }
 
     [Parameter]
-    public int projectId { get; set; }
+    public int ProjectID { get; set; }
 
     [Parameter]
-    public string ProjectName { get; set; } = string.Empty;
-
-    [Parameter]
-    public string ProjectColor { get; set; }
+    public List<string> Participants { get; set; }
 
     [Parameter]
     public EventCallback<int> OnSelectedId { get; set; } 

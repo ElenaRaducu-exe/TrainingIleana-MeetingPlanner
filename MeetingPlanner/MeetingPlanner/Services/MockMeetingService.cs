@@ -133,7 +133,7 @@ namespace MeetingPlanner.Services
 
             foreach (var meetingItem in meetingList)
             {
-                if (meetingItem.Id == projectId)
+                if (meetingItem.ProjectID == projectId)
                 {
                     meetingListProjectId.Add(meetingItem);
                 }
@@ -150,6 +150,24 @@ namespace MeetingPlanner.Services
         public Task UpdateMeetingAsync(Meeting meeting)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<List<Meeting>> GetMeetingsAsync()
+        {
+            return Task.FromResult(meetingList);
+        }
+
+        public Task<Project?> GetProjectByIdAsync(int id)
+        {
+            foreach (var project in projectList)
+            {
+                if (id == project.Id)
+                {
+                    return Task.FromResult(project);
+                }
+            }
+
+            return null;
         }
     }
 }

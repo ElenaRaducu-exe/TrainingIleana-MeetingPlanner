@@ -7,6 +7,9 @@
         Task<Meeting?> GetMeetingByIdAsync(int id);
         Task AddMeetingAsync(Meeting meeting); 
         Task UpdateMeetingAsync(Meeting meeting);
-        Task DeteleMeetingAsync(int id); 
+        Task DeteleMeetingAsync(int id);
+
+        Task<List<Meeting>> GetMeetingsAsync(); 
+        Task<Project?> GetProjectByIdAsync(int id);
     }
 }

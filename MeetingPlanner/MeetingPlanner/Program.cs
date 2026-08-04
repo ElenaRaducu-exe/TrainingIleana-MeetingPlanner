@@ -10,8 +10,9 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped<MeetingsService>();
 builder.Services.AddScoped<ProjectsService>();
+
 builder.Services.AddScoped<MeetingStateService>();
-builder.Services.AddScoped<IMeetingService, MockMeetingService>(); 
+builder.Services.AddScoped<IMeetingService, MockMeetingService>();
 
 var app = builder.Build();
 

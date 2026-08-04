@@ -3,29 +3,47 @@
 @using MeetingPlanner.Services
 @using MeetingPlanner.Components
 @using MeetingPlanner.Classes
+@using MeetingPlanner.Models
 
 @inject MeetingStateService meetingStateService
-@inject ProjectsService projectsService
+@inject IMeetingService iMeetingService
 
 <h1>Projects</h1>
 
-<p>Coming soon...</p>
-
 <p>List of projects</p>
 
-@foreach(var project in projectsService.getProjects())
+@foreach(var project in projectList)
 {
-        <ProjectBadge 
-            ProjectId = "@project.ProjectId"
-            Name="@project.ProjectName" 
-            OnSelected = "SelectedProject"/>
+    <ProjectBadge 
+        Id="@project.Id" 
+        Name="@project.Name"
+        Description="@project.Description"
+        OnSelected = "SelectedProject"/>
 }
 
 <p>Id-ul proiectului selectat este: @meetingStateService.SelectedProjectId</p>
 
-<Meetings></Meetings>
+<div class="meeting-component">
+    <Meetings></Meetings>
+</div>
+
+<style>
+    .meeting-component{
+        border: 3px solid #444348;
+        margin-bottom: 25px;
+        padding: 35px;
+        background-color: #C4C2CF;
+    }
+</style>
 
 @code {
+    private List<Project> projectList = []; 
+
+    protected override async Task OnInitializedAsync()
+    {
+        projectList = await iMeetingService.GetProjectsAsync();
+    }
+
     private void SelectedProject(int id)
     {
         meetingStateService.SetProject(id);

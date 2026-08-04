@@ -1,7 +1,9 @@
 ﻿<div class ="project-badge" 
-     style="background-color: @Color"
+     style="background-color: #7FBF7F"
      @onclick="ProjectClicked">
-    @Name
+    <h3>@Name</h3>
+    <p>ID proiect: @Id</p>
+    <p>Description: @Description</p>
 </div>
 
 <style>
@@ -14,13 +16,13 @@
 
 @code {
     [Parameter]
-    public int ProjectId { get; set; }
+    public int Id { get; set; }
 
     [Parameter]
     public string Name { get; set; } = string.Empty;
 
     [Parameter]
-    public string Color { get; set; } = "#7FBF7F";
+    public string Description { get; set; } = string.Empty;
 
     [Parameter]
     public EventCallback<int> OnSelected { get; set; }
@@ -28,6 +30,6 @@
     private async Task ProjectClicked()
     {
         // se declanseaza evenimentul OnSelected 
-        await OnSelected.InvokeAsync(ProjectId);
+        await OnSelected.InvokeAsync(Id);
     }
 }

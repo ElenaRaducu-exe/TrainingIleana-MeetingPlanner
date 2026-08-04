@@ -2,10 +2,10 @@
 
 @using MeetingPlanner.Classes
 @using MeetingPlanner.Services
+@using MeetingPlanner.Models
 
 @inject NavigationManager navigation
-@inject MeetingsService meetingService
-@inject ProjectsService projectsService
+@inject IMeetingService iMeetingService
 
 <button type="button" @onclick="NavigateBack">BACK</button>
 
@@ -20,30 +20,29 @@
 -->
 
 <ProjectBadge 
-        ProjectId = "@projectItem.ProjectId"
-        Name="@projectItem.ProjectName" />
-        <br />
+    Id="@projectItem.Id"
+    Name="@projectItem.Name"
+    Description="@projectItem.Description"/>
 
 <MeetingCard Id="@meetingItem.Id"
-             MeetingName="@meetingItem.MeetingTitle"
+             Title="@meetingItem.Title"
              Date="@meetingItem.Date"
-             projectId="@meetingItem.ProjectId" 
-             ProjectName="@projectItem.ProjectName"/>
+             ProjectID="@meetingItem.ProjectID" 
+             Participants="@meetingItem.Participants"/>
 
 @code {
     [Parameter]
     public int meetingId { get; set; }
 
-    public MeetingItem? meetingItem;
-    public ProjectItem? projectItem; 
+    public Meeting? meetingItem;
+    public Project? projectItem; 
 
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-        meetingItem = meetingService.GetMeetingCardByID(meetingId);
-
-        projectItem = projectsService.GetProjectById(meetingItem.ProjectId);
+        meetingItem = await iMeetingService.GetMeetingByIdAsync(meetingId);
+        projectItem = await iMeetingService.GetProjectByIdAsync(meetingItem.ProjectID);
     }
-    
+
     private void NavigateBack()
     {
         navigation.NavigateTo($"/meetings");
