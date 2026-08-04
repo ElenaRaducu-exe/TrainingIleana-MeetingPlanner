@@ -12,6 +12,11 @@
 
 <p>List of projects</p>
 
+<button type="button" @onclick="UndoSelectedProject">Undo project selection</button>
+
+<br/> 
+<br/> 
+
 @foreach(var project in projectList)
 {
     <ProjectBadge 
@@ -47,5 +52,10 @@
     private void SelectedProject(int id)
     {
         meetingStateService.SetProject(id);
+    }
+
+    private void UndoSelectedProject()
+    {
+        meetingStateService.ClearSelection();
     }
 }

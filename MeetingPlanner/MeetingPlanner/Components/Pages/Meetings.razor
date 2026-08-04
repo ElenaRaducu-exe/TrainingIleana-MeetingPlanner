@@ -76,14 +76,25 @@ else
             int id = meetingStateService.SelectedProjectId.Value;
             selectedProject = await iMeetingService.GetProjectByIdAsync(id);
         }
+        else
+        {
+            selectedProject = null;
+        }
     }
 
     // metoda executa cand se declanseaza OnChange
     private async void HandleStateChanged()
     {
         LoadSelectedProject();
-        
-        meetingList = await iMeetingService.GetMeetingsByProjectAsync(selectedProject.Id);
+
+        if (selectedProject == null)
+        {
+            meetingList = await iMeetingService.GetMeetingsAsync();
+        }
+        else 
+        {
+            meetingList = await iMeetingService.GetMeetingsByProjectAsync(selectedProject.Id);
+        }
 
         // re-randarea componentei -> actualizarea interfetei 
         StateHasChanged(); 
