@@ -1,4 +1,5 @@
 using MeetingPlanner.Components;
+using MeetingPlanner.Models;
 using MeetingPlanner.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddScoped<MeetingsService>();
 builder.Services.AddScoped<ProjectsService>();
 builder.Services.AddScoped<MeetingStateService>();
+builder.Services.AddScoped<IMeetingService, MockMeetingService>(); 
 
 var app = builder.Build();
 
