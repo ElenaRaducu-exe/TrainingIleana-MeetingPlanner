@@ -149,7 +149,9 @@ namespace MeetingPlanner.Services
 
         public Task UpdateMeetingAsync(Meeting meeting)
         {
-            throw new NotImplementedException();
+            meeting.Title = String.Concat(meeting.Title + " - updated Title");
+
+            return Task.CompletedTask;
         }
 
         public Task<List<Meeting>> GetMeetingsAsync()
