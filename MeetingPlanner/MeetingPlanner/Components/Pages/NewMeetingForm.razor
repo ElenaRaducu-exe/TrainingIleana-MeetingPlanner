@@ -1,11 +1,73 @@
 ﻿@page "/meetings/new"
 
+@using System.Reflection 
+@using System.ComponentModel.DataAnnotations
+
+@using MeetingPlanner.Classes
+@using MeetingPlanner.Components
+
 <h3>Form for creating a new meeting</h3>
 
-<p>Coming soon...</p>
+<EditForm Model="@newMeeting"
+          OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator /> 
 
-<p>Form for creating a meeting</p>
+    <div>
+        <label>Title:</label>
+        <InputText @bind-value = "newMeeting.Title" 
+                   placeholder = "@GetPrompt(nameof(NewMeetingModel.Title))"/>
+        <ValidationMessage For="@(() => newMeeting.Title)" />
+    </div>
+
+    <div>
+        <label>Date:</label>
+        <InputDate @bind-value = "newMeeting.Date" />
+        <ValidationMessage For="@(() => newMeeting.Date)" />
+    </div>
+
+    <div>
+        <label>Project ID:</label>
+        <InputNumber @bind-value = "newMeeting.ProjectID" 
+                     placeholder = "@GetPrompt(nameof(NewMeetingModel.ProjectID))"/>
+        <ValidationMessage For="@(() => newMeeting.ProjectID)" />
+    </div>
+
+    <div>
+        <label>Participants:</label>
+        <InputText @bind-value = "newMeeting.Participants" 
+                   placeholder = "@GetPrompt(nameof(NewMeetingModel.Participants))"/>
+        <ValidationMessage For="@(() => newMeeting.Participants)" />
+    </div>
+
+    <button type="submit">Add new meeting</button>
+
+</EditForm>
+
+@if (submitted)
+{
+    <p>
+        <MeetingCard 
+            Title="@newMeeting.Title"
+            Date="@newMeeting.Date"
+            ProjectID="@newMeeting.ProjectID"
+            Participants="@newMeeting.ConvertToList()"/>
+    </p>
+}
 
 @code {
+    private NewMeetingModel newMeeting = new();
+    private bool submitted = false;
 
+    private void HandleValidSubmit()
+    {
+        submitted = true; 
+        Console.WriteLine("Valid form submitted!");
+    }
+
+    private string GetPrompt(string propertyName)
+    {
+        var prop = typeof(NewMeetingModel).GetProperty(propertyName);
+        var displayAttr = prop?.GetCustomAttribute<DisplayAttribute>();
+        return displayAttr?.Prompt ?? string.Empty; 
+    }
 }
