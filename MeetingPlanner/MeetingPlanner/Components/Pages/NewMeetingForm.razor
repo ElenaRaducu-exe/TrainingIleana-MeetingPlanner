@@ -1,9 +1,12 @@
 ﻿@page "/meetings/new"
 
+@inject IMeetingService iMeetingService
+
 @using System.Reflection 
 @using System.ComponentModel.DataAnnotations
 
 @using MeetingPlanner.Classes
+@using MeetingPlanner.Models
 @using MeetingPlanner.Components
 
 <h3>Form for creating a new meeting</h3>
@@ -27,8 +30,12 @@
 
     <div>
         <label>Project ID:</label>
-        <InputNumber @bind-value = "newMeeting.ProjectID" 
-                     placeholder = "@GetPrompt(nameof(NewMeetingModel.ProjectID))"/>
+        <InputSelect @bind-value = "newMeeting.ProjectID">
+            <option> -- Select a project ID -- </option>
+            @foreach(var project in projects){
+                <option value="@project.Id">@project.Id</option>
+            }
+        </InputSelect>
         <ValidationMessage For="@(() => newMeeting.ProjectID)" />
     </div>
 
@@ -42,6 +49,10 @@
     <button type="submit">Add new meeting</button>
 
 </EditForm>
+
+<br />
+<br />
+<br />
 
 @if (submitted)
 {
@@ -69,5 +80,12 @@
         var prop = typeof(NewMeetingModel).GetProperty(propertyName);
         var displayAttr = prop?.GetCustomAttribute<DisplayAttribute>();
         return displayAttr?.Prompt ?? string.Empty; 
+    }
+
+    private List<Project> projects = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await iMeetingService.GetProjectsAsync();
     }
 }
