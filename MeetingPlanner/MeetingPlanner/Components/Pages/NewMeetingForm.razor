@@ -1,13 +1,13 @@
 ﻿@page "/meetings/new"
 
 @inject IMeetingService iMeetingService
+@inject NavigationManager navigation
 
 @using System.Reflection 
 @using System.ComponentModel.DataAnnotations
 
 @using MeetingPlanner.Classes
 @using MeetingPlanner.Models
-@using MeetingPlanner.Components
 
 <h3>Form for creating a new meeting</h3>
 <div class="editForm-addNewMeeting">
@@ -61,21 +61,39 @@
 {
     <p>
         <MeetingCard 
+            Id ="@newMeetingToAdd.Id"
             Title="@newMeeting.Title"
             Date="@newMeeting.Date"
             ProjectID="@newMeeting.ProjectID"
             Participants="@newMeeting.ConvertToList()"/>
+
+            <p>Redirecting to the meetings page...</p>
     </p>
 }
 
 @code {
     private NewMeetingModel newMeeting = new();
     private bool submitted = false;
+    private Meeting newMeetingToAdd = new(); 
 
-    private void HandleValidSubmit()
+    private async void HandleValidSubmit()
     {
-        submitted = true; 
-        Console.WriteLine("Valid form submitted!");
+        submitted = true;
+
+        newMeetingToAdd = new()
+            {
+                Id = iMeetingService.GetLastMeetingID() + 1,
+                Title = newMeeting.Title,
+                Date = newMeeting.Date,
+                ProjectID = newMeeting.ProjectID,
+                Participants = newMeeting.ConvertToList()
+            };
+
+        iMeetingService.AddMeetingAsync(newMeetingToAdd);
+
+
+        await Task.Delay(2000);
+        navigation.NavigateTo("/meetings"); 
     }
 
     private string GetPrompt(string propertyName)

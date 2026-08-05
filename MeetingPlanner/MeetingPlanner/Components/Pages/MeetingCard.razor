@@ -3,6 +3,8 @@
 <div class="meeting-card" @onclick="CardClicked">
     <h3>@Title</h3>
 
+    <p>ID: @Id</p>
+
     @if(Date.Date == DateTime.Today)
     {
         <p>TODAY: Date: @Date.ToString("dd MMM yyyy")</p>

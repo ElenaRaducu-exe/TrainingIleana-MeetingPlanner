@@ -11,5 +11,7 @@
 
         Task<List<Meeting>> GetMeetingsAsync(); 
         Task<Project?> GetProjectByIdAsync(int id);
+
+        int GetLastMeetingID(); 
     }
 }

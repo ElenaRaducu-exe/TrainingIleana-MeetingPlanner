@@ -361,6 +361,22 @@ main[b-02l6ajctmp] {
         opacity: 0;
     }
 }
+/* /Components/Pages/Meetings.razor.rz.scp.css */
+/* CSS for Meetings component */
+.btn-navigate-form[b-q0czdw2f3e] {
+    width: 100%;
+    background-color: #5252cb;
+    color: white;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover[b-q0czdw2f3e] {
+    background-color: #45a049;
+}
 /* /Components/Pages/NewMeetingForm.razor.rz.scp.css */
 /* CSS for NewMeetingForm component */
 
@@ -386,7 +402,7 @@ InputText[b-bn3mf1ss93], InputDate[b-bn3mf1ss93], InputSelect[b-bn3mf1ss93] {
 
 button[b-bn3mf1ss93] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #5252cb;
     color: white;
     padding: 14px;
     margin: 8px 0;

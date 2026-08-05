@@ -6,7 +6,7 @@ namespace MeetingPlanner.Services
 {
     public class MockMeetingService : IMeetingService
     {
-        private readonly List<Meeting> meetingList =
+        private List<Meeting> meetingList =
             [
                 new(){
                     Id = 1,
@@ -170,6 +170,12 @@ namespace MeetingPlanner.Services
             }
 
             return null;
+        }
+
+        public int GetLastMeetingID()
+        {
+            Meeting lastMeeting = meetingList[meetingList.Count - 1];
+            return lastMeeting.Id; 
         }
     }
 }
