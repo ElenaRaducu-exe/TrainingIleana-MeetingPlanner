@@ -361,3 +361,40 @@ main[b-02l6ajctmp] {
         opacity: 0;
     }
 }
+/* /Components/Pages/NewMeetingForm.razor.rz.scp.css */
+/* CSS for NewMeetingForm component */
+
+.editForm-addNewMeeting[b-bn3mf1ss93] {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+label[b-bn3mf1ss93] {
+    display: block;
+}
+
+InputText[b-bn3mf1ss93], InputDate[b-bn3mf1ss93], InputSelect[b-bn3mf1ss93] {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[b-bn3mf1ss93] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    button:hover[b-bn3mf1ss93] {
+        background-color: #45a049;
+    }

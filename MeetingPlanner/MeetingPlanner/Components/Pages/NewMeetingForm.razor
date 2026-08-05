@@ -10,7 +10,7 @@
 @using MeetingPlanner.Components
 
 <h3>Form for creating a new meeting</h3>
-
+<div class="editForm-addNewMeeting">
 <EditForm Model="@newMeeting"
           OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator /> 
@@ -46,9 +46,12 @@
         <ValidationMessage For="@(() => newMeeting.Participants)" />
     </div>
 
+    <br />
     <button type="submit">Add new meeting</button>
+    <br />
 
 </EditForm>
+</div>
 
 <br />
 <br />
