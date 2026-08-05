@@ -15,6 +15,11 @@
 <br/> 
 <br/> 
 
+<button type="button" @onclick="NavigateNewMeetingForm">Create a new meeting</button>
+
+<br />
+<br />
+
 <p>List of meetings</p>
 
 @if (selectedProject == null)
@@ -103,5 +108,10 @@ else
     public void Dispose()
     {
         meetingStateService.OnChange -= HandleStateChanged;
+    }
+
+    private void NavigateNewMeetingForm()
+    {
+        navigation.NavigateTo("/meetings/new");
     }
 }
