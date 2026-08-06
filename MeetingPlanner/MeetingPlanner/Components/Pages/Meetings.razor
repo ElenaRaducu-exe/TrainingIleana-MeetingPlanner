@@ -1,5 +1,7 @@
 ﻿@page "/meetings"
 
+@attribute [Authorize(Roles = "user,admin")]
+
 @inject NavigationManager navigation
 @inject MeetingStateService meetingStateService
 @inject IMeetingService iMeetingService

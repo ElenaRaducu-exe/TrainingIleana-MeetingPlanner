@@ -1,5 +1,7 @@
 ﻿@page "/meetings/{meetingId:int}"
 
+@attribute [Authorize(Roles = "user,admin")]
+
 @using MeetingPlanner.Classes
 @using MeetingPlanner.Services
 @using MeetingPlanner.Models

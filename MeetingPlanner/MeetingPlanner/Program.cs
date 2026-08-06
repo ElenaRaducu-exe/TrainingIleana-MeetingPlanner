@@ -16,10 +16,22 @@ builder.Services.AddScoped<ProjectsService>();
 builder.Services.AddScoped<MeetingStateService>();
 builder.Services.AddScoped<IMeetingService, MockMeetingService>();
 
+// -----------------------------------------------------------------------------------
 builder.Services.AddAuthenticationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>(); 
 builder.Services.AddScoped<InMemoryAuthService>();
 builder.Services.AddScoped<CustomAuthStateProvider>();
+
+builder.Services.AddAuthorization(); 
+builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<CustomAuthStateProvider>()); 
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "CustomAuthentication";
+    options.DefaultChallengeScheme = "CustomAuthentication";
+});
+// -----------------------------------------------------------------------------------
 
 var app = builder.Build();
 
