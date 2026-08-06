@@ -1,0 +1,32 @@
+﻿@page "/logout"
+
+@using MeetingPlanner.Classes
+
+@inject CustomAuthStateProvider authProvider
+@inject NavigationManager navigation
+
+<h3>Logout</h3>
+
+<p>Utilizator autentificat! Pentru a iesi din cont, apasati pe urmatorul buton:</p>
+
+<button @onclick="HandleLogout">
+    Logout
+</button>
+
+@if(message != null)
+{
+    <p>@message</p>
+}
+
+@code {
+    private string message = string.Empty; 
+
+    private async void HandleLogout()
+    {
+        authProvider.Logout();
+        message = "Success Logout!"; 
+
+        await Task.Delay(2000);
+        navigation.NavigateTo("/login"); 
+    }
+}

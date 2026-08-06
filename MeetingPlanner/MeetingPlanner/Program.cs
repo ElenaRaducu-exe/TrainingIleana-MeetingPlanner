@@ -1,6 +1,8 @@
+using MeetingPlanner.Classes;
 using MeetingPlanner.Components;
 using MeetingPlanner.Models;
 using MeetingPlanner.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,11 @@ builder.Services.AddScoped<ProjectsService>();
 
 builder.Services.AddScoped<MeetingStateService>();
 builder.Services.AddScoped<IMeetingService, MockMeetingService>();
+
+builder.Services.AddAuthenticationCore();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>(); 
+builder.Services.AddScoped<InMemoryAuthService>();
+builder.Services.AddScoped<CustomAuthStateProvider>();
 
 var app = builder.Build();
 
