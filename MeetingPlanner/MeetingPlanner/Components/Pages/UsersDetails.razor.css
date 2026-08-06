@@ -1,0 +1,19 @@
+/* CSS for UsersDetails component */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tr-row {
+    text-align: left;
+    padding: 8px;
+}
+
+.th-column {
+    text-align: left;
+    padding: 8px;
+}
+
+.tr-row:nth-child(even) {
+    background-color: #f2f2f2
+}

@@ -1,0 +1,35 @@
+﻿@page "/users"
+
+@attribute [Authorize(Roles = "admin")]
+
+<h3>Users Details</h3>
+
+@inject InMemoryAuthService authService
+
+@using MeetingPlanner.Classes
+@using MeetingPlanner.Services
+
+<table class="table">
+    <tr class="tr-row">
+        <th class="th-column">Username</th>
+        <th class="th-column">Password</th>
+        <th class="th-column">Role</th>
+    </tr>
+    @foreach(var user in users)
+    {
+        <tr class="tr-row">
+            <th class="th-column">@user.Username</th>
+            <th class="th-column">@user.Password</th>
+            <th class="th-column">@user.Role</th>
+        </tr>
+    }
+</table>
+
+@code {
+    public List<AppUser> users = new(); 
+
+    protected override void OnInitialized()
+    {
+        users = authService.GetUsers(); 
+    }
+}

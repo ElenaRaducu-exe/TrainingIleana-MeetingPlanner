@@ -46,5 +46,23 @@ namespace MeetingPlanner.Services
         {
             currentUser = null;
         }
+
+        public List<AppUser> GetUsers()
+        {
+            return users;
+        }
+
+        public void AddUser(AppUser user)
+        {
+            users.Add(user);
+        }
+
+        public void ModifyUserDetails(AppUser user, string newRole)
+        {
+            if(newRole != null)
+            {
+                user.Role = newRole;
+            }
+        }
     }
 }

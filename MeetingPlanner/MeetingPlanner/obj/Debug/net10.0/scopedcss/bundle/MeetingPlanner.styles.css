@@ -414,3 +414,23 @@ button[b-bn3mf1ss93] {
     button:hover[b-bn3mf1ss93] {
         background-color: #45a049;
     }
+/* /Components/Pages/UsersDetails.razor.rz.scp.css */
+/* CSS for UsersDetails component */
+.table[b-pb5u0m5gno] {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tr-row[b-pb5u0m5gno] {
+    text-align: left;
+    padding: 8px;
+}
+
+.th-column[b-pb5u0m5gno] {
+    text-align: left;
+    padding: 8px;
+}
+
+.tr-row:nth-child(even)[b-pb5u0m5gno] {
+    background-color: #f2f2f2
+}
