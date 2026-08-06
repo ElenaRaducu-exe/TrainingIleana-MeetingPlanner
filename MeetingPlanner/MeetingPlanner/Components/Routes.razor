@@ -1,4 +1,6 @@
-﻿<Router AppAssembly="typeof(Program).Assembly" 
+﻿@inject NavigationManager navigation
+
+<Router AppAssembly="typeof(Program).Assembly" 
         NotFoundPage="typeof(Pages.NotFound)">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" 
@@ -6,7 +8,10 @@
 
             <NotAuthorized>
                 <p>You are not authorized to view this page!</p>
-                <RedirectToLogin />
+                @if (true)
+                {
+                    navigation.NavigateTo("/login");
+                }
             </NotAuthorized>
 
             <Authorizing>
