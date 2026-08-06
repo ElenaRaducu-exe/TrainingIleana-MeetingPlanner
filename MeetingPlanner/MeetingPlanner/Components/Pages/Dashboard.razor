@@ -3,12 +3,47 @@
 
 @using Microsoft.AspNetCore.Authorization
 
+@inject IMeetingService iMeetingService
+
+@using MeetingPlanner.Services
+@using MeetingPlanner.Models
+
 <h1>Dashboard</h1>
 
 <p>Coming soon...</p>
 
 <p>Overview of all meetings</p>
 
-@code {
+<table class="table">
+    <tr class="tr-row">
+        <th class="th-column">ID</th>
+        <th class="th-column">Title</th>
+        <th class="th-column">Date</th>
+        <th class="th-column">ProjectID</th>
+        <th class="th-column">Participants</th>
+    </tr>
+    @foreach(var meeting in meetings)
+    {
+        <tr class="tr-row">
+            <th class="th-column">@meeting.Id</th>
+            <th class="th-column">@meeting.Title</th>
+            <th class="th-column">@meeting.Date</th>
+            <th class="th-column">@meeting.ProjectID</th>
+            <th class="th-column">
+                @foreach(var participant in meeting.Participants)
+                {
+                    <p>@participant</p> 
+                }
+            </th>
+        </tr>
+    }
+</table>
 
+@code {
+    public List<Meeting> meetings = new(); 
+
+    protected override async Task OnInitializedAsync()
+    {
+        meetings = await iMeetingService.GetMeetingsAsync();
+    }
 }

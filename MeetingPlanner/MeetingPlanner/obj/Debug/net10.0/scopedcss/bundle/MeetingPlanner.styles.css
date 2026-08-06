@@ -361,6 +361,26 @@ main[b-02l6ajctmp] {
         opacity: 0;
     }
 }
+/* /Components/Pages/Dashboard.razor.rz.scp.css */
+/* CSS for Dashboard component */
+.table[b-b8ti1ce76b] {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tr-row[b-b8ti1ce76b] {
+    text-align: left;
+    padding: 8px;
+}
+
+.th-column[b-b8ti1ce76b] {
+    text-align: left;
+    padding: 8px;
+}
+
+.tr-row:nth-child(even)[b-b8ti1ce76b] {
+    background-color: #f2f2f2
+}
 /* /Components/Pages/Meetings.razor.rz.scp.css */
 /* CSS for Meetings component */
 .btn-navigate-form[b-q0czdw2f3e] {
