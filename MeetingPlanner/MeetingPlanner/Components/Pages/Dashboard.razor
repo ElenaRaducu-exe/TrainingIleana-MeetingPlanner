@@ -19,22 +19,28 @@
         <th class="th-column">ID</th>
         <th class="th-column">Title</th>
         <th class="th-column">Date</th>
-        <th class="th-column">ProjectID</th>
         <th class="th-column">Participants</th>
+        <th class="th-column">ProjectID</th>
+        <th class="th-column">ProjectName</th>
+        <th class="th-column">ProjectDescription</th>
     </tr>
     @foreach(var meeting in meetings)
     {
+        var project = iMeetingService.GetProjectById(meeting.ProjectID); 
+
         <tr class="tr-row">
             <th class="th-column">@meeting.Id</th>
             <th class="th-column">@meeting.Title</th>
             <th class="th-column">@meeting.Date</th>
-            <th class="th-column">@meeting.ProjectID</th>
             <th class="th-column">
                 @foreach(var participant in meeting.Participants)
                 {
                     <p>@participant</p> 
                 }
             </th>
+            <th class="th-column">@meeting.ProjectID</th>
+            <th class="th-column">@project.Name</th>
+            <th class="th-column">@project.Description</th>
         </tr>
     }
 </table>

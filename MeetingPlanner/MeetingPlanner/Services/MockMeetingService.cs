@@ -177,5 +177,18 @@ namespace MeetingPlanner.Services
             Meeting lastMeeting = meetingList[meetingList.Count - 1];
             return lastMeeting.Id; 
         }
+
+        public Project GetProjectById(int id)
+        {
+            foreach (var project in projectList)
+            {
+                if (id == project.Id)
+                {
+                    return project;
+                }
+            }
+
+            return null;
+        }
     }
 }

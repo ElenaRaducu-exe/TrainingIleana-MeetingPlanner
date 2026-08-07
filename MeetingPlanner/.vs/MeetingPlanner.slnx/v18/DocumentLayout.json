@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\pages\\dashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\pages\\dashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\services\\mockmeetingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\services\\mockmeetingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\pages\\meetingdetailspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\pages\\meetingdetailspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\models\\imeetingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\models\\imeetingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,37 +38,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dashboard.razor.css",
-              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\Dashboard.razor.css",
-              "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Pages\\Dashboard.razor.css",
-              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\Dashboard.razor.css",
-              "RelativeToolTip": "MeetingPlanner\\Components\\Pages\\Dashboard.razor.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-08-06T15:22:49.825Z",
+              "DocumentIndex": 2,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Routes.razor",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Routes.razor",
+              "RelativeToolTip": "MeetingPlanner\\Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-07T07:43:35.151Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IMeetingService.cs",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Models\\IMeetingService.cs",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Models\\IMeetingService.cs",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Models\\IMeetingService.cs",
+              "RelativeToolTip": "MeetingPlanner\\Models\\IMeetingService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T07:33:26.425Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MockMeetingService.cs",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Services\\MockMeetingService.cs",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Services\\MockMeetingService.cs",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Services\\MockMeetingService.cs",
+              "RelativeToolTip": "MeetingPlanner\\Services\\MockMeetingService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T07:28:23.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Dashboard.razor",
               "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\Dashboard.razor",
               "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Pages\\Dashboard.razor",
               "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\Dashboard.razor",
               "RelativeToolTip": "MeetingPlanner\\Components\\Pages\\Dashboard.razor",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACIAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-08-06T15:13:38.774Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Layout\\NavMenu.razor",
@@ -69,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Program.cs",
               "RelativeDocumentMoniker": "MeetingPlanner\\Program.cs",
@@ -77,7 +115,40 @@
               "RelativeToolTip": "MeetingPlanner\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T10:24:33.909Z",
+              "WhenOpened": "2026-08-06T10:24:33.909Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "cf43ff63-e02d-4ea3-9e93-6f00cfd44004",
+        "Display": 1,
+        "X": 942,
+        "Y": 377,
+        "Width": 1195,
+        "Height": 666,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MeetingDetailsPage.razor",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\MeetingDetailsPage.razor",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Pages\\MeetingDetailsPage.razor",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\MeetingDetailsPage.razor",
+              "RelativeToolTip": "MeetingPlanner\\Components\\Pages\\MeetingDetailsPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-07T06:55:23.419Z",
               "EditorCaption": ""
             }
           ]
