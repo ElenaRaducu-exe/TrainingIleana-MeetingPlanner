@@ -14,7 +14,7 @@
 
 <p>List of projects</p>
 
-<button type="button" @onclick="UndoSelectedProject">Undo project selection</button>
+<button type="button" @onclick="@UndoSelectedProject">Undo project selection</button>
 
 <br/> 
 <br/> 
@@ -25,7 +25,7 @@
         Id="@project.Id" 
         Name="@project.Name"
         Description="@project.Description"
-        OnSelected = "SelectedProject"/>
+        OnSelected = "@SelectedProject"/>
 }
 
 <p>Id-ul proiectului selectat este: @meetingStateService.SelectedProjectId</p>

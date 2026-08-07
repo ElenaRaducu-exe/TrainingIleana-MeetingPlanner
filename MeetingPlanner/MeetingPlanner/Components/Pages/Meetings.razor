@@ -7,6 +7,7 @@
 @inject IMeetingService iMeetingService
 
 @using MeetingPlanner.Services
+@using MeetingPlanner.Services.Contracts
 @using MeetingPlanner.Classes
 @using MeetingPlanner.Models 
 
@@ -19,7 +20,7 @@
 
 <button type="button" 
         class="btn-navigate-form" 
-        @onclick="NavigateNewMeetingForm">Create a new meeting</button>
+        @onclick="@NavigateNewMeetingForm">Create a new meeting</button>
 
 <br />
 <br />
@@ -43,7 +44,7 @@ else
         Date="@meeting.Date"
         ProjectID="@meeting.ProjectID"
         Participants="@meeting.Participants"
-        OnSelectedId = "SelectMeetingId"  />
+        OnSelectedId = "@SelectMeetingId"  />
 }
 
 @code {

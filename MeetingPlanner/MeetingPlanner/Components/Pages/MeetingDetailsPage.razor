@@ -7,7 +7,6 @@
 @using MeetingPlanner.Models
 
 @inject NavigationManager navigation
-@inject IMeetingService iMeetingService
 
 <button type="button" @onclick="NavigateBack">BACK</button>
 
@@ -33,6 +32,9 @@
              Participants="@meetingItem.Participants"/>
 
 @code {
+    [Inject]
+    private IMeetingService _meetingService { get; set; }
+
     [Parameter]
     public int meetingId { get; set; }
 
@@ -41,8 +43,8 @@
 
     protected override async Task OnParametersSetAsync()
     {
-        meetingItem = await iMeetingService.GetMeetingByIdAsync(meetingId);
-        projectItem = await iMeetingService.GetProjectByIdAsync(meetingItem.ProjectID);
+        meetingItem = await _meetingService.GetMeetingByIdAsync(meetingId);
+        projectItem = await _meetingService.GetProjectByIdAsync(meetingItem.ProjectID);
     }
 
     private void NavigateBack()
