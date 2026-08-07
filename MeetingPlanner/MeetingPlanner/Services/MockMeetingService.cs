@@ -160,14 +160,15 @@ namespace MeetingPlanner.Services
             return Task.FromResult(meetingList);
         }
 
-        public async Task<Project?> GetProjectByIdAsync(int id)
+        public Task<Project?> GetProjectByIdAsync(int id)
         {
-            await Task.Delay(1);
+            //await Task.Delay(1);
             foreach (var project in projectList)
             {
                 if (id == project.Id)
                 {
-                    return project;
+                    //return project;
+                    return Task.FromResult(project);
                 }
             }
 
