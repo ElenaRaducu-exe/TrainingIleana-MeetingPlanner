@@ -1,6 +1,7 @@
 ﻿using MeetingPlanner.Classes;
 using MeetingPlanner.Components.Pages;
 using MeetingPlanner.Models;
+using MeetingPlanner.Services.Contracts;
 
 namespace MeetingPlanner.Services
 {
@@ -159,13 +160,14 @@ namespace MeetingPlanner.Services
             return Task.FromResult(meetingList);
         }
 
-        public Task<Project?> GetProjectByIdAsync(int id)
+        public async Task<Project?> GetProjectByIdAsync(int id)
         {
+            await Task.Delay(1);
             foreach (var project in projectList)
             {
                 if (id == project.Id)
                 {
-                    return Task.FromResult(project);
+                    return project;
                 }
             }
 
@@ -178,17 +180,28 @@ namespace MeetingPlanner.Services
             return lastMeeting.Id; 
         }
 
-        public Project GetProjectById(int id)
+        public async Task<List<MeetingSummary>> GetMeetingSummaries()
         {
-            foreach (var project in projectList)
+            List<MeetingSummary> meetingSummaries = new List<MeetingSummary>();
+
+            foreach(var meeting in meetingList)
             {
-                if (id == project.Id)
+                Project prj = await GetProjectByIdAsync(meeting.ProjectID);
+                MeetingSummary meetingSummary = new()
                 {
-                    return project;
-                }
+                    Id = meeting.Id,
+                    Title = meeting.Title,
+                    Date = meeting.Date,
+                    ProjectId = prj.Id,
+                    ProjectName = prj.Name,
+                    ProjectDescription = prj.Description,
+                    Participants = meeting.Participants
+                };
+
+                meetingSummaries.Add(meetingSummary);
             }
 
-            return null;
+            return meetingSummaries;
         }
     }
 }

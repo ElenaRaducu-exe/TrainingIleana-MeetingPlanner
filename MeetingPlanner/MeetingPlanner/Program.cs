@@ -1,7 +1,7 @@
 using MeetingPlanner.Classes;
 using MeetingPlanner.Components;
-using MeetingPlanner.Models;
 using MeetingPlanner.Services;
+using MeetingPlanner.Services.Contracts;
 using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
