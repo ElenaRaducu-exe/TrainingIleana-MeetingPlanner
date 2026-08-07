@@ -160,19 +160,9 @@ namespace MeetingPlanner.Services
             return Task.FromResult(meetingList);
         }
 
-        public Task<Project?> GetProjectByIdAsync(int id)
+        public async Task<Project?> GetProjectByIdAsync(int id)
         {
-            //await Task.Delay(1);
-            foreach (var project in projectList)
-            {
-                if (id == project.Id)
-                {
-                    //return project;
-                    return Task.FromResult(project);
-                }
-            }
-
-            return null;
+            return projectList.FirstOrDefault(x => x.Id == id);
         }
 
         public int GetLastMeetingID()
