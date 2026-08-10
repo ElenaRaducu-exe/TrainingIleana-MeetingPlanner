@@ -1,9 +1,11 @@
-using MeetingPlanner.Auth;
 using MeetingPlanner.Components;
 using MeetingPlanner.Services;
 using MeetingPlanner.Services.Contracts;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Authorization;
+
 using MudBlazor.Services;
+using MeetingPlanner.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,19 +21,21 @@ builder.Services.AddScoped<IMeetingService, MockMeetingService>();
 
 // -----------------------------------------------------------------------------------
 builder.Services.AddAuthenticationCore();
-builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>(); 
+//builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>(); 
 builder.Services.AddScoped<InMemoryAuthService>();
 builder.Services.AddScoped<CustomAuthStateProvider>();
 
 builder.Services.AddAuthorization(); 
 builder.Services.AddCascadingAuthenticationState();
-builder.Services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<CustomAuthStateProvider>()); 
+builder.Services.AddScoped<AuthenticationStateProvider>(provider => 
+            provider.GetRequiredService<CustomAuthStateProvider>()); 
 
+/*
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = "CustomAuthentication";
     options.DefaultChallengeScheme = "CustomAuthentication";
-});
+});*/
 // -----------------------------------------------------------------------------------
 
 // register MudBlazor 
@@ -54,5 +58,8 @@ app.UseAntiforgery();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
