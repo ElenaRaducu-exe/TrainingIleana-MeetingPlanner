@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider 
+    @bind-IsDarkMode = "@darkMode"/>
 
 <MudLayout>
     <MudAppBar>
@@ -10,6 +11,13 @@
             Edge="Edge.Start" 
             OnClick="@DrawerToggle" />
         Meeting Planner
+
+        <MudSpacer /> 
+
+        <MudToggleIconButton 
+            @bind-Toggled = "@darkMode"
+            Color="Color.Inherit"
+            Icon="@Icons.Material.Filled.DarkMode"/>
     </MudAppBar>
 
     <MudDrawer 
@@ -34,6 +42,7 @@
 
 @code {
     bool drawerOpen = true;
+    bool darkMode = false; 
 
     void DrawerToggle()
     {
