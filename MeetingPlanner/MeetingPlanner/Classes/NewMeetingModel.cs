@@ -9,7 +9,7 @@ namespace MeetingPlanner.Classes
         public string Title { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Date is required!")]
-        public DateTime Date {  get; set; } = DateTime.Today;
+        public DateTime? Date {  get; set; } = DateTime.Today;
 
         [Display(Prompt = "Choose the project ID for the meeting")]
         [Required(ErrorMessage = "Project's ID is required!")]

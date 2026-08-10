@@ -65,7 +65,7 @@
         <MeetingCard 
             Id ="@newMeetingToAdd.Id"
             Title="@newMeeting.Title"
-            Date="@newMeeting.Date"
+            Date="@newMeeting.Date.Value"
             ProjectID="@newMeeting.ProjectID"
             Participants="@newMeeting.ConvertToList()"/>
 
@@ -86,7 +86,7 @@
             {
                 Id = iMeetingService.GetLastMeetingID() + 1,
                 Title = newMeeting.Title,
-                Date = newMeeting.Date,
+                Date = newMeeting.Date.Value,
                 ProjectID = newMeeting.ProjectID,
                 Participants = newMeeting.ConvertToList()
             };

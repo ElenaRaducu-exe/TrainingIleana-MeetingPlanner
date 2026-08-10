@@ -18,6 +18,12 @@
 <br/> 
 <br/> 
 
+<MudButton
+    @onclick="OpenDialogAsync"
+    Color="Color.Primary">
+    Add new meeting
+</MudButton>
+
 <button type="button" 
         class="btn-navigate-form" 
         @onclick="@NavigateNewMeetingForm">Create a new meeting</button>
@@ -48,6 +54,9 @@ else
 }
 
 @code {
+    [Inject]
+    private IDialogService DialogService { get; set; }
+
     private int selectedId { get; set; }  
     private Meeting? selectedItem { get; set; }
     private Project? selectedProject;
@@ -118,5 +127,12 @@ else
     private void NavigateNewMeetingForm()
     {
         navigation.NavigateTo("/meetings/new");
+    }
+
+    private Task OpenDialogAsync()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+
+        return DialogService.ShowAsync<DialogFormNewMeeting>("Simple Dialog", options);
     }
 }

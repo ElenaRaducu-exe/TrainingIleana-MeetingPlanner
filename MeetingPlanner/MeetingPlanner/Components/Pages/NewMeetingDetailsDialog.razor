@@ -1,0 +1,33 @@
+﻿@using MeetingPlanner.Models
+
+<MudDialog>
+     <TitleContent>
+       New Meeting Details Dialog
+    </TitleContent>
+
+    <DialogContent>
+        <MeetingCard 
+            Id ="@meeting.Id"
+            Title="@meeting.Title"
+            Date="@meeting.Date"
+            ProjectID="@meeting.ProjectID"
+            Participants="@meeting.Participants"/>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton OnClick="@Cancel">Cancel</MudButton>
+    </DialogActions>
+
+</MudDialog>
+@code {
+    [CascadingParameter]
+    private IMudDialogInstance _mudDialog { get; set; }
+
+    [Parameter]
+    public Meeting meeting { get; set; } = new(); 
+
+    private void Cancel()
+    {
+       _mudDialog.Cancel(); 
+    } 
+}
