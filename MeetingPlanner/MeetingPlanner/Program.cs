@@ -3,6 +3,7 @@ using MeetingPlanner.Components;
 using MeetingPlanner.Services;
 using MeetingPlanner.Services.Contracts;
 using Microsoft.AspNetCore.Components.Authorization;
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,9 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = "CustomAuthentication";
 });
 // -----------------------------------------------------------------------------------
+
+// register MudBlazor 
+builder.Services.AddMudServices();
 
 var app = builder.Build();
 

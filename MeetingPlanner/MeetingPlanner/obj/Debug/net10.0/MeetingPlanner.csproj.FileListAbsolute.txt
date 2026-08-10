@@ -175,3 +175,9 @@ C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlann
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\scopedcss\Components\Pages\UsersDetails.razor.rz.scp.css
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\u17qn2o635-{0}-zgw7wqmvqc-zgw7wqmvqc.gz
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\tcjb155ob6-{0}-zgw7wqmvqc-zgw7wqmvqc.gz
+C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\MeetingPlanner.csproj.AssemblyReference.cache
+C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\bin\Debug\net10.0\MudBlazor.dll
+C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\tzxjg6is5z-{0}-lkdub7p9ap-lkdub7p9ap.gz
+C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\0wz98yz2xy-{0}-gq2gsvbrc0-gq2gsvbrc0.gz
+C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\o7k4cxtn0u-{0}-c7spsuynqe-c7spsuynqe.gz
+C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\MeetingP.EC83B00C.Up2Date
