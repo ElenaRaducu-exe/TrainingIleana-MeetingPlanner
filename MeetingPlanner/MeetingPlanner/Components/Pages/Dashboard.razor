@@ -12,43 +12,81 @@
 
 <p>Overview of all meetings</p>
 
-<table class="table">
-    <tr class="tr-row">
-        <th class="th-column">ID</th>
-        <th class="th-column">Title</th>
-        <th class="th-column">Date</th>
-        <th class="th-column">Participants</th>
-        <th class="th-column">ProjectID</th>
-        <th class="th-column">ProjectName</th>
-        <th class="th-column">ProjectDescription</th>
-    </tr>
-    @foreach (var meeting in Meetings)
-    {
-        <tr class="tr-row">
-            <th class="th-column">@meeting.Id</th>
-            <th class="th-column">@meeting.Title</th>
-            <th class="th-column">@meeting.Date</th>
-            <th class="th-column">
-                @foreach(var participant in meeting.Participants)
-                {
-                    <p>@participant</p> 
-                }
-            </th>
-            <th class="th-column">@meeting.ProjectId</th>
-            <th class="th-column">@meeting.ProjectName</th>
-            <th class="th-column">@meeting.ProjectDescription</th>
-        </tr>
-    }
-</table>
+<!-- Hover="true" -->
+<MudTable 
+    T="MeetingSummary"
+    Items="@MeetingsSummaries"
+    Hover="@hover" 
+    Striped="@striped"
+    Filter="@FilterFunction">
+        <ToolBarContent>
+            <MudTextField
+                @bind-Value="searchString"
+                Placeholder="Search for project..."
+                Adornment="Adornment.Start" 
+                AdornmentIcon="@Icons.Material.Filled.Search"></MudTextField>
+        </ToolBarContent>
+
+        <HeaderContent>
+            <MudTh>ID</MudTh>
+            <MudTh>Title</MudTh>
+            <MudTh>Date</MudTh>
+            <MudTh>Participants</MudTh>
+            <MudTh>ProjectID</MudTh>
+            <MudTh>
+                <MudTableSortLabel 
+                    T="MeetingSummary"
+                    SortBy="@(x => x.ProjectName)">
+                            ProjectName
+                </MudTableSortLabel>
+            </MudTh>
+            <MudTh>ProjectDescription</MudTh>
+        </HeaderContent>
+
+    <RowTemplate>
+                <MudTh>@context.Id</MudTh>
+                <MudTh>@context.Title</MudTh>
+                <MudTh>@context.Date</MudTh>
+                <MudTh>
+                    @foreach(var participant in context.Participants)
+                    {
+                        <p>@participant</p> 
+                    }
+                </MudTh>
+                <MudTh>@context.ProjectId</MudTh>
+                <MudTh>@context.ProjectName</MudTh>
+                <MudTh>@context.ProjectDescription</MudTh>
+    </RowTemplate>
+</MudTable>
+
+<MudToolBar>
+    <MudSwitch @bind-Value="hover" Color="Color.Primary">Hover</MudSwitch>
+    <MudSwitch @bind-Value="striped" Color="Color.Tertiary">Striped</MudSwitch>
+</MudToolBar>
 
 @code {
     [Inject]
     private IMeetingService _meetingService { get; set; }
 
-    public List<MeetingSummary> Meetings = new(); 
+    private bool hover = false; 
+    private bool striped = false;
+    private string searchString = String.Empty; 
+
+    public List<MeetingSummary> MeetingsSummaries = new(); 
 
     protected override async Task OnInitializedAsync()
     {
-        Meetings = await _meetingService.GetMeetingSummaries();
+        MeetingsSummaries = await _meetingService.GetMeetingSummaries();
+    }
+
+    private bool FilterFunction(MeetingSummary meetingSummary)
+    {
+        if(string.IsNullOrWhiteSpace(searchString) == true 
+                || meetingSummary.ProjectName.Contains(searchString) == true)
+        {
+            return true; 
+        }
+
+        return false; 
     }
 }

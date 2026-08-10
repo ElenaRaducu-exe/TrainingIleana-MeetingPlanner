@@ -56,27 +56,27 @@ namespace MeetingPlanner.Services
             [
                 new(){
                     Id = 1,
-                    Name = "Project 1",
+                    Name = "Connect - Project 1",
                     Description = "Project 1 - MockMeetingService"
                 }, 
                 new(){
                     Id = 2,
-                    Name = "Project 2",
+                    Name = "Optimize - Project 2",
                     Description = "Project 2 - MockMeetingService"
                 }, 
                 new(){
                     Id = 3,
-                    Name = "Project 3",
+                    Name = "Upgrade - Project 3",
                     Description = "Project 3 - MockMeetingService"
                 }, 
                 new(){
                     Id = 4,
-                    Name = "Project 4",
+                    Name = "Boost - Project 4",
                     Description = "Project 4 - MockMeetingService"
                 }, 
                 new(){
                     Id = 5,
-                    Name = "Project 5",
+                    Name = "Restore - Project 5",
                     Description = "Project 5 - MockMeetingService"
                 } 
             ];
