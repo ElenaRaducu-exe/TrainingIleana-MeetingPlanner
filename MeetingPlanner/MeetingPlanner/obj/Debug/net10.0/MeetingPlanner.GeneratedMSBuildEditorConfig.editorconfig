@@ -27,20 +27,20 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/Auth/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoXExvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/Auth/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoXExvZ291dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/Logout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/MeetingCard.razor]

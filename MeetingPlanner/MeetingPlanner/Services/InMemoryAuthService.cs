@@ -1,4 +1,4 @@
-﻿using MeetingPlanner.Classes;
+﻿using MeetingPlanner.Auth;
 
 namespace MeetingPlanner.Services
 {

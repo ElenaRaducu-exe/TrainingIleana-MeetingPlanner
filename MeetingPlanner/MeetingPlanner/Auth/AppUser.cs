@@ -1,4 +1,4 @@
-﻿namespace MeetingPlanner.Classes
+﻿namespace MeetingPlanner.Auth
 {
     public class AppUser
     {

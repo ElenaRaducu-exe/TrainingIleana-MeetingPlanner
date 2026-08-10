@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
 
-namespace MeetingPlanner.Classes
+namespace MeetingPlanner.Auth
 {
     public class CustomAuthStateProvider : AuthenticationStateProvider
     {

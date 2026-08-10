@@ -1,4 +1,4 @@
-using MeetingPlanner.Classes;
+using MeetingPlanner.Auth;
 using MeetingPlanner.Components;
 using MeetingPlanner.Services;
 using MeetingPlanner.Services.Contracts;
