@@ -6,21 +6,32 @@
 @using MeetingPlanner.Services
 @using MeetingPlanner.Auth
 
-<h3>Login Page</h3>
+<h1>Login Page</h1>
 
-<div>
-    <label>Username: </label>
-    <input @bind="username" />
-</div>
+<MudForm>
+    <MudTextField 
+        T="string"
+        Label = "Username"
+        Required="true"
+        RequiredError ="Email is required!"
+        @bind-value = "username">
+    </MudTextField>
 
-<div>
-    <label>Password: </label>
-    <input type="password" @bind="password" />
-</div>
+    <MudTextField 
+        T="string"
+        Label = "Password"
+        Required="true"
+        RequiredError ="Password is required!"
+        InputType ="InputType.Password"
+        @bind-value = "password">
+    </MudTextField>
+</MudForm>
 
-<button @onclick="@HandleLogin">
+<MudButton Variant="Variant.Filled" 
+           Style="background-color: #C998ED;"
+           @onclick = "@HandleLogin">
     Login
-</button>
+</MudButton>
 
 @if (failMessage != null)
 {

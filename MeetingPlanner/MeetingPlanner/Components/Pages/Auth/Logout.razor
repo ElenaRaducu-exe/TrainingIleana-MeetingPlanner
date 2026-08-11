@@ -15,9 +15,11 @@
 <br/>
 <br/>
 
-<button @onclick="@HandleLogout">
+<MudButton Variant="Variant.Filled" 
+           Style="background-color: #C998ED;"
+           @onclick = "@HandleLogout">
     Logout
-</button>
+</MudButton>
 
 @if(message != null)
 {
