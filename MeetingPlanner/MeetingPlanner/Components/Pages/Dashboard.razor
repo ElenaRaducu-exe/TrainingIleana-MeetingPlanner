@@ -122,17 +122,25 @@
         }
     }
 
-
     private Task EditMeetingDialog(MeetingSummary meetingSummary)
     {
+        /*
+        var parametersDialogConfirmation = new DialogParameters
+        {
+            {"Title", "Edit meeting confirmation"},
+            {"Message", "Are you sure you want to proceed with editing the meeting?"}
+        };
 
-        var parameters = new DialogParameters
+        var dialog = _dialogService.ShowAsync<ConfirmationDialog>("Confirmation", parametersDialogConfirmation);
+        var result = await dialog.Result;*/
+
+        var parametersMeetingSummary = new DialogParameters
         {
             {"meetingDetails", meetingSummary}
         };
 
         //return _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parameters);
         //var options = new DialogOptions { CloseOnEscapeKey = true };
-        return _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parameters);
+        return _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parametersMeetingSummary);
     }
 }

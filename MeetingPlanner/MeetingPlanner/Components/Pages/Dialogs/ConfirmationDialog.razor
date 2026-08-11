@@ -1,0 +1,69 @@
+﻿<h3>ConfirmationDialog</h3>
+
+<MudDialog>
+    <TitleContent>
+        @Title
+    </TitleContent>
+    
+    <DialogContent>
+        <MudText>
+            @Message
+        </MudText>
+    </DialogContent>
+    
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" 
+           Style="background-color: #C998ED;"
+           @onclick = "@ConfirmClicked">
+            Confirm
+        </MudButton>
+    
+        <MudButton Variant="Variant.Filled" 
+           Style="background-color: #C998ED;"
+           @onclick = "@CancelClicked">
+            Cancel
+        </MudButton>
+    </DialogActions>
+    
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private IMudDialogInstance _mudDialogInstance { get; set; }
+
+    [Parameter]
+    public string Title { get; set; } = "Confirm Action";
+
+    [Parameter]
+    public string Message { get; set; } = "Are you sure you want to proceed with editing the meeting?";
+
+    private void ConfirmClicked()
+    {
+        _mudDialogInstance.Close(DialogResult.Ok(true)); 
+    }
+
+    private void CancelClicked()
+    {
+        _mudDialogInstance.Cancel(); 
+    }
+
+    /*
+    // Callback for when the user clicks on "Confirm"
+    [Parameter]
+    public EventCallback OnConfirm { get; set; }
+
+    // Callback for when the user clicks on "Cancel"
+    // EventCallback to notify parent when canceled
+    [Parameter]
+    public EventCallback OnCancel { get; set; }
+
+    private async Task ConfirmClicked()
+    {
+        await OnConfirm.InvokeAsync(); 
+    }
+
+    private async Task CancelClicked()
+    {
+        await OnCancel.InvokeAsync(); 
+    }*/
+}

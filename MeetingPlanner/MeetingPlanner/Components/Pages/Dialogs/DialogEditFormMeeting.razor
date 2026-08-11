@@ -3,6 +3,7 @@
 
 @using MeetingPlanner.Classes
 @using MeetingPlanner.Models
+@using MeetingPlanner.Components.Pages
 
 <MudDialog>
     <TitleContent>
@@ -75,7 +76,18 @@
 
     private async Task EditMeeting()
     {
-        _newMeeting = new()
+        var parameters = new DialogParameters
+        {
+            {"Title", "Edit meeting confirmation"}, 
+            {"Message", "Are you sure you want to proceed with editing the meeting?"}
+        };
+
+        var dialog = await _dialogService.ShowAsync<ConfirmationDialog>("Confirmation", parameters);
+        var result = await dialog.Result; 
+
+        if(result != null && !result.Canceled)
+        {
+            _newMeeting = new()
             {
                 Id = meetingDetails.Id,
                 Title = _newMeetingModel.Title,
@@ -84,9 +96,10 @@
                 Participants = _newMeetingModel.ConvertToList()
             };
 
-        await _meetingService.UpdateMeetingAsync(_newMeeting);
+            await _meetingService.UpdateMeetingAsync(_newMeeting);
 
-        _mudDialog.Close(DialogResult.Ok(true));  
+            _mudDialog.Close(DialogResult.Ok(true));
+        }  
     }
 
     protected override async Task OnInitializedAsync()
