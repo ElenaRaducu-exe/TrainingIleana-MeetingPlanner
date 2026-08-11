@@ -158,12 +158,6 @@ namespace MeetingPlanner.Services
                     meeting.Date = meetingDetailsUpdate.Date;
                     meeting.ProjectID = meetingDetailsUpdate.ProjectID;
                     meeting.Participants = meetingDetailsUpdate.Participants;
-                }else if(meeting.Title == meetingDetailsUpdate.Title)
-                {
-                    meeting.Id = meetingDetailsUpdate.Id;
-                    meeting.Date = meetingDetailsUpdate.Date;
-                    meeting.ProjectID = meetingDetailsUpdate.ProjectID;
-                    meeting.Participants = meetingDetailsUpdate.Participants;
                 }
             }
 
