@@ -148,9 +148,24 @@ namespace MeetingPlanner.Services
             return Task.FromResult(projectList);
         }
 
-        public Task UpdateMeetingAsync(Meeting meeting)
+        public Task UpdateMeetingAsync(Meeting meetingDetailsUpdate)
         {
-            meeting.Title = String.Concat(meeting.Title + " - updated Title");
+            foreach(var meeting in meetingList)
+            {
+                if(meeting.Id == meetingDetailsUpdate.Id)
+                {
+                    meeting.Title = meetingDetailsUpdate.Title;
+                    meeting.Date = meetingDetailsUpdate.Date;
+                    meeting.ProjectID = meetingDetailsUpdate.ProjectID;
+                    meeting.Participants = meetingDetailsUpdate.Participants;
+                }else if(meeting.Title == meetingDetailsUpdate.Title)
+                {
+                    meeting.Id = meetingDetailsUpdate.Id;
+                    meeting.Date = meetingDetailsUpdate.Date;
+                    meeting.ProjectID = meetingDetailsUpdate.ProjectID;
+                    meeting.Participants = meetingDetailsUpdate.Participants;
+                }
+            }
 
             return Task.CompletedTask;
         }
@@ -193,6 +208,13 @@ namespace MeetingPlanner.Services
             }
 
             return meetingSummaries;
+        }
+
+        public async Task<MeetingSummary> GetMeetingSummaryId(int id)
+        {
+            List<MeetingSummary> meetingSummaries = await GetMeetingSummaries();
+
+            return meetingSummaries.FirstOrDefault(x => x.Id == id); 
         }
     }
 }

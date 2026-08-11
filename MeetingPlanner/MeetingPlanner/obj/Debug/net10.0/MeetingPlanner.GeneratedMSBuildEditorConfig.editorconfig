@@ -38,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoXExvZ291dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/DialogEditFormMeeting.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEaWFsb2dFZGl0Rm9ybU1lZXRpbmcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/00_Training Ileana/Frontend - Blazor fundamentals/TrainingIleana-MeetingPlanner/MeetingPlanner/MeetingPlanner/Components/Pages/DialogFormNewMeeting.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEaWFsb2dGb3JtTmV3TWVldGluZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

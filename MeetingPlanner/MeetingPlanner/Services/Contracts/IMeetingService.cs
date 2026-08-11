@@ -16,6 +16,8 @@ namespace MeetingPlanner.Services.Contracts
 
         int GetLastMeetingID();
 
-        Task<List<MeetingSummary>> GetMeetingSummaries(); 
+        Task<List<MeetingSummary>> GetMeetingSummaries();
+
+        Task<MeetingSummary> GetMeetingSummaryId(int id); 
     }
 }

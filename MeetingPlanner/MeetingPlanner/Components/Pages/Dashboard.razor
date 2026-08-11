@@ -1,5 +1,4 @@
 ﻿@page "/dashboard"
-@attribute [Authorize]
 
 @using Microsoft.AspNetCore.Authorization
 
@@ -42,6 +41,7 @@
             </MudTh>
             <MudTh>ProjectDescription</MudTh>
             <MudTh>Delete Meeting</MudTh>
+            <MudTh>Edit Meeting</MudTh>
         </HeaderContent>
 
     <RowTemplate>
@@ -64,6 +64,13 @@
                         Delete
                     </MudButton>
                 </MudTh>
+                <MudTh>
+                    <MudButton Variant="Variant.Filled" 
+                        Style="background-color: #C998ED;"
+                        @onclick = "@(() => EditMeetingDialog(context))">
+                        Edit
+                    </MudButton>
+                </MudTh>
     </RowTemplate>
 </MudTable>
 
@@ -76,11 +83,15 @@
     [Inject]
     private IMeetingService _meetingService { get; set; }
 
+    [Inject]
+    private IDialogService _dialogService { get; set; }
+
     private bool hover = false; 
     private bool striped = false;
     private string searchString = String.Empty; 
 
-    public List<MeetingSummary> MeetingsSummaries = new(); 
+    public List<MeetingSummary> MeetingsSummaries = new();
+    public MeetingSummary meetingSummary { get; set; } = new(); 
 
     protected override async Task OnInitializedAsync()
     {
@@ -101,5 +112,19 @@
     private async void DeleteMeeting(int idMeetingForDeleting)
     {
         _meetingService.DeteleMeetingAsync(idMeetingForDeleting);
+    }
+
+
+    private Task EditMeetingDialog(MeetingSummary meetingSummary)
+    {
+        
+        var parameters = new DialogParameters
+        {
+            {"meetingDetails", meetingSummary}
+        };
+
+        //return _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parameters);
+        //var options = new DialogOptions { CloseOnEscapeKey = true };
+        return _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parameters);
     }
 }

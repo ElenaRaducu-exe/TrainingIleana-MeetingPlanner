@@ -1,0 +1,105 @@
+﻿@using System.Reflection 
+@using System.ComponentModel.DataAnnotations
+
+@using MeetingPlanner.Classes
+@using MeetingPlanner.Models
+
+<MudDialog>
+    <TitleContent>
+        Edit Meeting
+    </TitleContent>
+
+    <DialogContent>
+        <MudTextField 
+            @bind-value = "_newMeetingModel.Title"
+            Label="Title"
+            Placeholder="@meetingDetails.Title"
+            Required="true"/>
+
+        <MudDatePicker
+            @bind-value = "_newMeetingModel.Date"
+            Label="Date"
+            Placeholder="@meetingDetails.Date.ToString()"
+            Required="true"/>
+
+        <MudSelect 
+            T="int"
+            @bind-value = "_newMeetingModel.ProjectID"
+            Label="ProjectID"
+            Placeholder="@meetingDetails.ProjectId.ToString()"
+            Required="true">
+            @foreach (var project in _projects)
+            {
+                <MudSelectItem value="@project.Id">
+                    @project.Id
+                </MudSelectItem>
+            }
+        </MudSelect>
+
+        <MudTextField 
+            @bind-value = "_newMeetingModel.Participants"
+            Label="Participants"
+            Placeholder="Test placeholder"
+            Required="true"/>
+
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton 
+            OnClick="@Cancel">Cancel
+        </MudButton>
+
+        <MudButton 
+            Color="Color.Primary" 
+            OnClick="@EditMeeting">Edit meeting
+        </MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private IMudDialogInstance _mudDialog { get; set; }
+
+    [Inject]
+    private IDialogService _dialogService { get; set; }
+
+    [Inject]
+    private IMeetingService _meetingService { get; set; }
+
+    [Inject]
+    private NavigationManager _navigation { get; set; }
+
+    [Parameter]
+    public MeetingSummary meetingDetails { get; set; } = new(); 
+
+    private NewMeetingModel _newMeetingModel = new(); 
+    private Meeting _newMeeting = new();
+
+    private List<Project> _projects = new();
+
+    private async Task EditMeeting()
+    {
+        _newMeeting = new()
+            {
+                Id = meetingDetails.Id,
+                Title = _newMeetingModel.Title,
+                Date = _newMeetingModel.Date.Value,
+                ProjectID = _newMeetingModel.ProjectID,
+                Participants = _newMeetingModel.ConvertToList()
+            };
+
+        _meetingService.UpdateMeetingAsync(_newMeeting);
+
+        _mudDialog.Close(DialogResult.Ok(true)); 
+    }
+    
+    private void Cancel()
+    {
+        _mudDialog.Cancel();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _projects = await _meetingService.GetProjectsAsync();
+    }
+}
