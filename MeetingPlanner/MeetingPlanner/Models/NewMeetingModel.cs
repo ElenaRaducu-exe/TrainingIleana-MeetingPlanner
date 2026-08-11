@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MeetingPlanner.Classes
+namespace MeetingPlanner.Models
 {
     public class NewMeetingModel
     {
