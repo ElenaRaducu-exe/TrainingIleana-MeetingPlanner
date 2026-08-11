@@ -86,12 +86,15 @@
     [Inject]
     private IDialogService _dialogService { get; set; }
 
+    [Inject]
+    private IJSRuntime _jRuntime { get; set; }
+
     private bool hover = false; 
     private bool striped = false;
     private string searchString = String.Empty; 
 
     public List<MeetingSummary> MeetingsSummaries = new();
-    public MeetingSummary meetingSummary { get; set; } = new(); 
+    public MeetingSummary meetingSummary { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -111,13 +114,17 @@
 
     private async void DeleteMeeting(int idMeetingForDeleting)
     {
-        _meetingService.DeteleMeetingAsync(idMeetingForDeleting);
+        bool confirmDetele = await _jRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to detele the meeting?");
+        if (confirmDetele)
+        {
+            _meetingService.DeteleMeetingAsync(idMeetingForDeleting);
+        }
     }
 
 
     private Task EditMeetingDialog(MeetingSummary meetingSummary)
     {
-        
+
         var parameters = new DialogParameters
         {
             {"meetingDetails", meetingSummary}
