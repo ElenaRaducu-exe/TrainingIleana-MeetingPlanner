@@ -2,10 +2,6 @@
 
 @attribute [Authorize(Roles = "user,admin")]
 
-@inject NavigationManager navigation
-@inject MeetingStateService meetingStateService
-@inject IMeetingService iMeetingService
-
 @using MeetingPlanner.Services
 @using MeetingPlanner.Services.Contracts
 @using MeetingPlanner.Classes
@@ -55,7 +51,16 @@ else
 
 @code {
     [Inject]
-    private IDialogService DialogService { get; set; }
+    private IDialogService _dialogService { get; set; }
+
+    [Inject]
+    private NavigationManager _navigationManager { get; set; }
+
+    [Inject]
+    private MeetingStateService _meetingStateService { get; set; }
+
+    [Inject]
+    private IMeetingService _meetingService { get; set; }
 
     private int selectedId { get; set; }  
     private Meeting? selectedItem { get; set; }
@@ -65,7 +70,7 @@ else
     protected override void OnInitialized()
     {
         // componneta s-a abonat la evenimentul OnChange 
-        meetingStateService.OnChange += HandleStateChanged;
+        _meetingStateService.OnChange += HandleStateChanged;
         LoadSelectedProject();
     }
 
@@ -73,27 +78,27 @@ else
     {
         if (selectedProject == null)
         {
-            meetingList = await iMeetingService.GetMeetingsAsync();
+            meetingList = await _meetingService.GetMeetingsAsync();
         }
         else
         {
-            meetingList = await iMeetingService.GetMeetingsByProjectAsync(selectedProject.Id);
+            meetingList = await _meetingService.GetMeetingsByProjectAsync(selectedProject.Id);
         }
     } 
 
     private void SelectMeetingId(int id)
     {
         selectedId = id;
-        navigation.NavigateTo($"/meetings/{selectedId}");
+        _navigationManager.NavigateTo($"/meetings/{selectedId}");
     }
 
     // actualizeaza selectedProject 
     private async void LoadSelectedProject()
     {
-        if(meetingStateService.SelectedProjectId.HasValue)
+        if(_meetingStateService.SelectedProjectId.HasValue)
         {
-            int id = meetingStateService.SelectedProjectId.Value;
-            selectedProject = await iMeetingService.GetProjectByIdAsync(id);
+            int id = _meetingStateService.SelectedProjectId.Value;
+            selectedProject = await _meetingService.GetProjectByIdAsync(id);
         }
         else
         {
@@ -108,11 +113,11 @@ else
 
         if (selectedProject == null)
         {
-            meetingList = await iMeetingService.GetMeetingsAsync();
+            meetingList = await _meetingService.GetMeetingsAsync();
         }
         else 
         {
-            meetingList = await iMeetingService.GetMeetingsByProjectAsync(selectedProject.Id);
+            meetingList = await _meetingService.GetMeetingsByProjectAsync(selectedProject.Id);
         }
 
         // re-randarea componentei -> actualizarea interfetei 
@@ -121,18 +126,18 @@ else
 
     public void Dispose()
     {
-        meetingStateService.OnChange -= HandleStateChanged;
+        _meetingStateService.OnChange -= HandleStateChanged;
     }
 
     private void NavigateNewMeetingForm()
     {
-        navigation.NavigateTo("/meetings/new");
+        _navigationManager.NavigateTo("/meetings/new");
     }
 
     private Task OpenDialogAsync()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
 
-        return DialogService.ShowAsync<DialogFormNewMeeting>("Simple Dialog", options);
+        return _dialogService.ShowAsync<DialogFormNewMeeting>("Simple Dialog", options);
     }
 }

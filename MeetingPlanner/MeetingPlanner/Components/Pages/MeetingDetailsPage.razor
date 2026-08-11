@@ -6,8 +6,6 @@
 @using MeetingPlanner.Services
 @using MeetingPlanner.Models
 
-@inject NavigationManager navigation
-
 <button type="button" @onclick="NavigateBack">BACK</button>
 
 <br />
@@ -35,6 +33,9 @@
     [Inject]
     private IMeetingService _meetingService { get; set; }
 
+    [Inject]
+    private NavigationManager _navigationManager { get; set; }
+
     [Parameter]
     public int meetingId { get; set; }
 
@@ -49,6 +50,6 @@
 
     private void NavigateBack()
     {
-        navigation.NavigateTo($"/meetings");
+        _navigationManager.NavigateTo($"/meetings");
     }
 }

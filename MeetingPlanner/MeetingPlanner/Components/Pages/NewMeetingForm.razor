@@ -2,9 +2,6 @@
 
 @attribute [Authorize(Roles = "user")]
 
-@inject IMeetingService iMeetingService
-@inject NavigationManager navigation
-
 @using System.Reflection 
 @using System.ComponentModel.DataAnnotations
 
@@ -74,6 +71,12 @@
 }
 
 @code {
+    [Inject]
+    private IMeetingService _meetingService { get; set; }
+
+    [Inject]
+    private NavigationManager _navigationManager { get; set; }
+
     private NewMeetingModel newMeeting = new();
     private bool submitted = false;
     private Meeting newMeetingToAdd = new(); 
@@ -84,18 +87,18 @@
 
         newMeetingToAdd = new()
             {
-                Id = iMeetingService.GetLastMeetingID() + 1,
+                Id = _meetingService.GetLastMeetingID() + 1,
                 Title = newMeeting.Title,
                 Date = newMeeting.Date.Value,
                 ProjectID = newMeeting.ProjectID,
                 Participants = newMeeting.ConvertToList()
             };
 
-        iMeetingService.AddMeetingAsync(newMeetingToAdd);
+        _meetingService.AddMeetingAsync(newMeetingToAdd);
 
 
         await Task.Delay(2000);
-        navigation.NavigateTo("/meetings"); 
+        _navigationManager.NavigateTo("/meetings"); 
     }
 
     private string GetPrompt(string propertyName)
@@ -109,6 +112,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        projects = await iMeetingService.GetProjectsAsync();
+        projects = await _meetingService.GetProjectsAsync();
     }
 }

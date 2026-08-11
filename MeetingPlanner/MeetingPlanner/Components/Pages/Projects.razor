@@ -7,9 +7,6 @@
 @using MeetingPlanner.Classes
 @using MeetingPlanner.Models
 
-@inject MeetingStateService meetingStateService
-@inject IMeetingService iMeetingService
-
 <h1>Projects</h1>
 
 <p>List of projects</p>
@@ -28,7 +25,7 @@
         OnSelected = "@SelectedProject"/>
 }
 
-<p>Id-ul proiectului selectat este: @meetingStateService.SelectedProjectId</p>
+<p>Id-ul proiectului selectat este: @_meetingStateService.SelectedProjectId</p>
 
 <div class="meeting-component">
     <Meetings></Meetings>
@@ -44,20 +41,26 @@
 </style>
 
 @code {
+    [Inject]
+    private MeetingStateService _meetingStateService { get; set; }
+
+    [Inject]
+    private IMeetingService _meetingService { get; set; }
+
     private List<Project> projectList = []; 
 
     protected override async Task OnInitializedAsync()
     {
-        projectList = await iMeetingService.GetProjectsAsync();
+        projectList = await _meetingService.GetProjectsAsync();
     }
 
     private void SelectedProject(int id)
     {
-        meetingStateService.SetProject(id);
+        _meetingStateService.SetProject(id);
     }
 
     private void UndoSelectedProject()
     {
-        meetingStateService.ClearSelection();
+        _meetingStateService.ClearSelection();
     }
 }
