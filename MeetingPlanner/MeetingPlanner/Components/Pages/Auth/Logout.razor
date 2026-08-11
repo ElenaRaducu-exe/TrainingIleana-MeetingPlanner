@@ -1,14 +1,19 @@
 ﻿@page "/logout"
 
+@attribute [Authorize]
+
 @inject CustomAuthStateProvider authProvider
 @inject NavigationManager navigation
 
 @using MeetingPlanner.Services
 @using MeetingPlanner.Auth
 
-<h3>Logout</h3>
+<h1>Logout</h1>
 
-<p>Utilizator autentificat! Pentru a iesi din cont, apasati pe urmatorul buton:</p>
+<h3>Utilizator autentificat! Pentru a iesi din cont, apasati pe urmatorul buton:</h3>
+
+<br/>
+<br/>
 
 <button @onclick="@HandleLogout">
     Logout
