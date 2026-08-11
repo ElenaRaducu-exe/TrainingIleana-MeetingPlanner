@@ -46,10 +46,6 @@
 
     <DialogActions>
         <MudButton 
-            OnClick="@Cancel">Cancel
-        </MudButton>
-
-        <MudButton 
             Color="Color.Primary" 
             OnClick="@EditMeeting">Edit meeting
         </MudButton>
@@ -91,11 +87,6 @@
         _meetingService.UpdateMeetingAsync(_newMeeting);
 
         _mudDialog.Close(DialogResult.Ok(true)); 
-    }
-    
-    private void Cancel()
-    {
-        _mudDialog.Cancel();
     }
 
     protected override async Task OnInitializedAsync()
