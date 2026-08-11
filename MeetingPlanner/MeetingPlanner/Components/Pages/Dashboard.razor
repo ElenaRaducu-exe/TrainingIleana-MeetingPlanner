@@ -41,6 +41,7 @@
                 </MudTableSortLabel>
             </MudTh>
             <MudTh>ProjectDescription</MudTh>
+            <MudTh>Delete Meeting</MudTh>
         </HeaderContent>
 
     <RowTemplate>
@@ -56,6 +57,13 @@
                 <MudTh>@context.ProjectId</MudTh>
                 <MudTh>@context.ProjectName</MudTh>
                 <MudTh>@context.ProjectDescription</MudTh>
+                <MudTh>
+                    <MudButton Variant="Variant.Filled" 
+                        Style="background-color: #C998ED;"
+                        @onclick = "@(() => DeleteMeeting(context.Id))">
+                        Delete
+                    </MudButton>
+                </MudTh>
     </RowTemplate>
 </MudTable>
 
@@ -88,5 +96,10 @@
         }
 
         return false; 
+    }
+
+    private async void DeleteMeeting(int idMeetingForDeleting)
+    {
+        _meetingService.DeteleMeetingAsync(idMeetingForDeleting);
     }
 }
