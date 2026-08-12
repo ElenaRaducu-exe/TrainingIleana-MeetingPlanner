@@ -97,9 +97,14 @@
     public List<MeetingSummary> MeetingsSummaries = new();
     public MeetingSummary meetingSummary { get; set; } = new();
 
-    protected override async Task OnInitializedAsync()
+    private async Task LoadMeetingsSummaries()
     {
         MeetingsSummaries = await _meetingService.GetMeetingSummaries();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadMeetingsSummaries(); 
     }
 
     private bool FilterFunction(MeetingSummary meetingSummary)
@@ -113,34 +118,30 @@
         return false; 
     }
 
-    private async void DeleteMeeting(int idMeetingForDeleting)
+    private async Task DeleteMeeting(int idMeetingForDeleting)
     {
         bool confirmDetele = await _jRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to detele the meeting?");
+
         if (confirmDetele)
         {
-            _meetingService.DeteleMeetingAsync(idMeetingForDeleting);
+            await _meetingService.DeteleMeetingAsync(idMeetingForDeleting);
+            await LoadMeetingsSummaries();
         }
     }
 
-    private Task EditMeetingDialog(MeetingSummary meetingSummary)
+    private async Task EditMeetingDialog(MeetingSummary meetingSummary)
     {
-        /*
-        var parametersDialogConfirmation = new DialogParameters
-        {
-            {"Title", "Edit meeting confirmation"},
-            {"Message", "Are you sure you want to proceed with editing the meeting?"}
-        };
-
-        var dialog = _dialogService.ShowAsync<ConfirmationDialog>("Confirmation", parametersDialogConfirmation);
-        var result = await dialog.Result;*/
-
         var parametersMeetingSummary = new DialogParameters
         {
             {"meetingDetails", meetingSummary}
         };
 
-        //return _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parameters);
-        //var options = new DialogOptions { CloseOnEscapeKey = true };
-        return _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parametersMeetingSummary);
+        var dialog = await _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parametersMeetingSummary);
+        var result = await dialog.Result;
+
+        if (result != null && !result.Canceled)
+        {
+            await LoadMeetingsSummaries(); // reincarcarea datelor
+        }
     }
 }

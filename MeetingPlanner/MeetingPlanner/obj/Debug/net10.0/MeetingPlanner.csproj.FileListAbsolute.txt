@@ -156,8 +156,6 @@ C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlann
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\wl4og3bdal-{0}-63fj8s7r0e-63fj8s7r0e.gz
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\4iwwom3m6g-{0}-0j3bgjxly4-0j3bgjxly4.gz
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\mok9iedvbo-{0}-abdmv1u4y3-abdmv1u4y3.gz
-C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\045oq8yg86-{0}-ne14ti1q68-ne14ti1q68.gz
-C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\5n0fgyq3bo-{0}-ig5xotzpx5-ig5xotzpx5.gz
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\staticwebassets.build.json
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\staticwebassets.development.json
@@ -181,3 +179,5 @@ C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlann
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\MeetingP.EC83B00C.Up2Date
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\u17qn2o635-{0}-yxnkckxzge-yxnkckxzge.gz
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\tcjb155ob6-{0}-yxnkckxzge-yxnkckxzge.gz
+C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\045oq8yg86-{0}-wyu7y4jcvb-wyu7y4jcvb.gz
+C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\obj\Debug\net10.0\compressed\5n0fgyq3bo-{0}-wfr2hj6447-wfr2hj6447.gz

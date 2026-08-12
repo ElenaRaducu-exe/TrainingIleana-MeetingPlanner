@@ -45,10 +45,10 @@ wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 Components\Layout\ReconnectModal.razor.js
-C:\Users\elenar\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.9\build\..\_framework\blazor.web.js
-C:\Users\elenar\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.9\build\..\_framework\blazor.server.js
-C:\Users\elenar\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.9\_framework\blazor.server.js
-C:\Users\elenar\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.9\_framework\blazor.web.js
+C:\Users\elenar\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.11\build\..\_framework\blazor.web.js
+C:\Users\elenar\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.11\build\..\_framework\blazor.server.js
+C:\Users\elenar\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.11\_framework\blazor.web.js
+C:\Users\elenar\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.11\_framework\blazor.server.js
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\Components\Layout\ReconnectModal.razor.js
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 C:\00_Training Ileana\Frontend - Blazor fundamentals\TrainingIleana-MeetingPlanner\MeetingPlanner\MeetingPlanner\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
