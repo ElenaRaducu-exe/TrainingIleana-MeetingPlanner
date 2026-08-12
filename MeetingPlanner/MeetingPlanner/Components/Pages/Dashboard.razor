@@ -136,8 +136,8 @@
         var parameters = new DialogParameters
             {
                 {nameof(DeleteConfirmationDialog.Title), "Delete meeting confirmation"}, 
-                {"Message", "Are you sure you want to proceed with deteleting this meeting?"},
-                {"OnConfirm", EventCallback.Factory.Create<int>(this, () => ConfirmDelete(idMeetingForDeleting))}
+                {nameof(DeleteConfirmationDialog.Message), "Are you sure you want to proceed with deteleting this meeting?"},
+                {nameof(DeleteConfirmationDialog.OnConfirm), EventCallback.Factory.Create<int>(this, () => ConfirmDelete(idMeetingForDeleting))}
             };
 
             await _dialogService.ShowAsync<DeleteConfirmationDialog>("Delete Confirmation", parameters); 
@@ -147,7 +147,7 @@
     {
         var parametersMeetingSummary = new DialogParameters
         {
-            {"meetingDetails", meetingSummary}
+            {nameof(DialogEditFormMeeting.meetingDetails), meetingSummary}
         };
 
         var dialog = await _dialogService.ShowAsync<DialogEditFormMeeting>("Edit meeting", parametersMeetingSummary);

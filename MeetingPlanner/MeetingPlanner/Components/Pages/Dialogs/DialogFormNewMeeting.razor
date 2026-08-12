@@ -84,7 +84,7 @@
 
         var parameters = new DialogParameters
         {
-            {"Meeting", _newMeeting}
+            {nameof(NewMeetingDetailsDialog.meeting), _newMeeting}
         };
 
         _dialogService.ShowAsync<NewMeetingDetailsDialog>("Meeting details", parameters);
