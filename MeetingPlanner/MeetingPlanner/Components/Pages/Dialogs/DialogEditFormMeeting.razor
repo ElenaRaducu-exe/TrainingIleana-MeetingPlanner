@@ -82,7 +82,7 @@
             {"Message", "Are you sure you want to proceed with editing the meeting?"}
         };
 
-        var dialog = await _dialogService.ShowAsync<ConfirmationDialog>("Confirmation", parameters);
+        var dialog = await _dialogService.ShowAsync<EditConfirmationDialog>("Confirmation", parameters);
         var result = await dialog.Result; 
 
         if(result != null && !result.Canceled)
