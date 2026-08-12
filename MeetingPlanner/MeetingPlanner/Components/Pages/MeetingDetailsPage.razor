@@ -12,6 +12,12 @@
     BACK
 </MudButton>
 
+<MudButton Variant="Variant.Filled" 
+           Style="background-color: #C998ED;"
+           @onclick = "@CopyMeetingLink">
+    Copy meeting link
+</MudButton>
+
 <br />
 <br />
 
@@ -33,7 +39,15 @@
              ProjectID="@meetingItem.ProjectID" 
              Participants="@meetingItem.Participants"/>
 
+@if(_showNotification == true)
+{
+    <p>Link copied! - @_meetingLink</p>
+}
+
 @code {
+    [Inject]
+    private IJSRuntime _jSRuntime { get; set; }
+
     [Inject]
     private IMeetingService _meetingService { get; set; }
 
@@ -46,6 +60,15 @@
     public Meeting? meetingItem;
     public Project? projectItem; 
 
+    private string _meetingLink = string.Empty;
+
+    private bool _showNotification = false; 
+
+    protected override void OnInitialized()
+    {
+        _meetingLink = _navigationManager.Uri; 
+    }
+
     protected override async Task OnParametersSetAsync()
     {
         meetingItem = await _meetingService.GetMeetingByIdAsync(meetingId);
@@ -55,5 +78,24 @@
     private void NavigateBack()
     {
         _navigationManager.NavigateTo($"/meetings");
+    }
+
+
+    private async Task CopyMeetingLink()
+    {
+        await _jSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", _meetingLink);
+
+        await ShowNotification();
+    }
+
+    private async Task ShowNotification()
+    {
+        _showNotification = true;
+        StateHasChanged();
+
+        await Task.Delay(2000); 
+
+         _showNotification = false;
+        StateHasChanged();
     }
 }
