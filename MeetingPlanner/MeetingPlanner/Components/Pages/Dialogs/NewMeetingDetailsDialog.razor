@@ -16,9 +16,11 @@
 
     <DialogActions>
         <MudButton OnClick="@Cancel">Cancel</MudButton>
+        <MudButton OnClick="@Close">OK</MudButton>
     </DialogActions>
 
 </MudDialog>
+
 @code {
     [CascadingParameter]
     private IMudDialogInstance _mudDialog { get; set; }
@@ -29,5 +31,10 @@
     private void Cancel()
     {
        _mudDialog.Cancel(); 
+    } 
+
+    private void Close()
+    {
+       _mudDialog.Close(DialogResult.Ok(true)); 
     } 
 }

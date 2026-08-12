@@ -75,11 +75,16 @@ else
         LoadSelectedProject();
     }
 
+    private async Task LoadData()
+    {
+        meetingList = await _meetingService.GetMeetingsAsync();
+    }
+
     protected override async Task OnInitializedAsync()
     {
         if (selectedProject == null)
         {
-            meetingList = await _meetingService.GetMeetingsAsync();
+            LoadData();
         }
         else
         {
@@ -114,7 +119,7 @@ else
 
         if (selectedProject == null)
         {
-            meetingList = await _meetingService.GetMeetingsAsync();
+            LoadData();
         }
         else 
         {
@@ -135,10 +140,16 @@ else
         _navigationManager.NavigateTo("/meetings/new");
     }
 
-    private Task OpenDialogAsync()
+    private async Task OpenDialogAsync()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
 
-        return _dialogService.ShowAsync<DialogFormNewMeeting>("Simple Dialog", options);
+        var dialog = await _dialogService.ShowAsync<DialogFormNewMeeting>("Simple Dialog", options);
+        var result = await dialog.Result;
+
+        if(result != null && !result.Canceled)
+        {
+            await LoadData(); 
+        }
     }
 }

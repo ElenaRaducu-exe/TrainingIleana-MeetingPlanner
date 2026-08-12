@@ -81,7 +81,7 @@
             };
 
         _meetingService.AddMeetingAsync(_newMeeting);
-
+        
         var parameters = new DialogParameters
         {
             {nameof(NewMeetingDetailsDialog.meeting), _newMeeting}
@@ -89,7 +89,7 @@
 
         _dialogService.ShowAsync<NewMeetingDetailsDialog>("Meeting details", parameters);
         //_navigation.NavigateTo("/meetings");
-        //MudDialog.Close(DialogResult.Ok(true)); 
+        _mudDialog.Close(DialogResult.Ok(true)); 
     }
     
     private void Cancel()
