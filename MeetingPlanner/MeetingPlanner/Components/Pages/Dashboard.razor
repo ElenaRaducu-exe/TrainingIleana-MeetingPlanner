@@ -61,7 +61,7 @@
                 <MudTh>
                     <MudButton Variant="Variant.Filled" 
                         Style="background-color: #C998ED;"
-                        @onclick = "@(() => DeleteMeeting(context.Id))">
+                        @onclick = "@(() => ShowDeleteConfirmation(context.Id))">
                         Delete
                     </MudButton>
                 </MudTh>
@@ -86,9 +86,6 @@
 
     [Inject]
     private IDialogService _dialogService { get; set; }
-
-    [Inject]
-    private IJSRuntime _jRuntime { get; set; }
 
     private bool hover = false; 
     private bool striped = false;
@@ -118,6 +115,10 @@
         return false; 
     }
 
+    /*
+    [Inject]
+    private IJSRuntime _jRuntime { get; set; }
+
     private async Task DeleteMeeting(int idMeetingForDeleting)
     {
         bool confirmDetele = await _jRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to detele the meeting?");
@@ -126,7 +127,20 @@
         {
             await _meetingService.DeteleMeetingAsync(idMeetingForDeleting);
             await LoadMeetingsSummaries();
-        }
+            }
+        }*/
+
+    private async Task ShowDeleteConfirmation(int idMeetingForDeleting)
+    {
+
+        var parameters = new DialogParameters
+            {
+                {nameof(DeleteConfirmationDialog.Title), "Delete meeting confirmation"}, 
+                {"Message", "Are you sure you want to proceed with deteleting this meeting?"},
+                {"OnConfirm", EventCallback.Factory.Create<int>(this, () => ConfirmDelete(idMeetingForDeleting))}
+            };
+
+            await _dialogService.ShowAsync<DeleteConfirmationDialog>("Delete Confirmation", parameters); 
     }
 
     private async Task EditMeetingDialog(MeetingSummary meetingSummary)
@@ -143,5 +157,11 @@
         {
             await LoadMeetingsSummaries(); // reincarcarea datelor
         }
+    }
+
+    private async Task ConfirmDelete(int id)
+    {
+        await _meetingService.DeteleMeetingAsync(id);
+        await LoadMeetingsSummaries();
     }
 }

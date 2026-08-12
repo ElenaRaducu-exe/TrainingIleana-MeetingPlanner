@@ -1,0 +1,63 @@
+﻿<h3>DeleteConfirmationDialog</h3>
+
+<MudDialog>
+    <TitleContent>
+        @Title
+    </TitleContent>
+    
+    <DialogContent>
+        <MudText>
+            @Message
+        </MudText>
+    </DialogContent>
+    
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" 
+           Style="background-color: #C998ED;"
+           @onclick = "@ConfirmClicked">
+            Confirm
+        </MudButton>
+    
+        <MudButton Variant="Variant.Filled" 
+           Style="background-color: #C998ED;"
+           @onclick = "@CancelClicked">
+            Cancel
+        </MudButton>
+    </DialogActions>
+    
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private IMudDialogInstance _mudDialogInstance { get; set; }
+
+    [Parameter]
+    public int Id { get; set; }
+
+    [Parameter]
+    public string Title { get; set; } = "Confirm Action";
+
+    [Parameter]
+    public string Message { get; set; } = "Are you sure you want to proceed with deleting the meeting?";
+
+    // Callback for when the user clicks on "Confirm"
+    [Parameter]
+    public EventCallback<int> OnConfirm { get; set; }
+
+    // Callback for when the user clicks on "Cancel"
+    // EventCallback to notify parent when canceled
+    [Parameter]
+    public EventCallback<int> OnCancel { get; set; }
+
+    private async Task ConfirmClicked()
+    {
+        await OnConfirm.InvokeAsync(Id);
+        _mudDialogInstance.Close(); 
+    }
+
+    private async Task CancelClicked()
+    {
+        await OnCancel.InvokeAsync(Id); 
+        _mudDialogInstance.Close(); 
+    }
+}
