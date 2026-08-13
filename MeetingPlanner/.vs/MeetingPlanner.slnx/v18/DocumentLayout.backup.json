@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\pages\\meetingdetailspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\pages\\meetingdetailspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\pages\\auth\\logout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\pages\\auth\\logout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\pages\\newmeetingform.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\pages\\newmeetingform.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\services\\inmemoryauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\services\\inmemoryauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\auth\\customauthstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\auth\\customauthstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|c:\\00_training ileana\\frontend - blazor fundamentals\\trainingileana-meetingplanner\\meetingplanner\\meetingplanner\\components\\pages\\auth\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F6AF34B-FA2F-F3B2-02A3-FF57E9F21B96}|MeetingPlanner\\MeetingPlanner.csproj|solutionrelative:meetingplanner\\components\\pages\\auth\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,53 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InMemoryAuthService.cs",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Services\\InMemoryAuthService.cs",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Services\\InMemoryAuthService.cs",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Services\\InMemoryAuthService.cs",
+              "RelativeToolTip": "MeetingPlanner\\Services\\InMemoryAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-13T06:21:05.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CustomAuthStateProvider.cs",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Auth\\CustomAuthStateProvider.cs",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Auth\\CustomAuthStateProvider.cs",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Auth\\CustomAuthStateProvider.cs",
+              "RelativeToolTip": "MeetingPlanner\\Auth\\CustomAuthStateProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-12T14:59:33.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\Auth\\Login.razor",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Pages\\Auth\\Login.razor",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\Auth\\Login.razor",
+              "RelativeToolTip": "MeetingPlanner\\Components\\Pages\\Auth\\Login.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-13T07:55:44.591Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MeetingDetailsPage.razor",
-              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\MeetingDetailsPage.razor",
-              "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Pages\\MeetingDetailsPage.razor",
-              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\MeetingDetailsPage.razor",
-              "RelativeToolTip": "MeetingPlanner\\Components\\Pages\\MeetingDetailsPage.razor",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAFcAAAAhAAAAAAAAAA==",
+              "Title": "Logout.razor",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\Auth\\Logout.razor",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Pages\\Auth\\Logout.razor",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\Auth\\Logout.razor",
+              "RelativeToolTip": "MeetingPlanner\\Components\\Pages\\Auth\\Logout.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAUwCUAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-12T13:05:17.929Z",
+              "WhenOpened": "2026-08-13T07:56:14.983Z",
               "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "417f32c5-dd57-4614-88b4-b3f2783fcab2",
-        "Display": 1,
-        "X": 494,
-        "Y": 378,
-        "Width": 1195,
-        "Height": 547,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NewMeetingForm.razor",
-              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\NewMeetingForm.razor",
-              "RelativeDocumentMoniker": "MeetingPlanner\\Components\\Pages\\NewMeetingForm.razor",
-              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Components\\Pages\\NewMeetingForm.razor",
-              "RelativeToolTip": "MeetingPlanner\\Components\\Pages\\NewMeetingForm.razor",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-12T14:16:54.508Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Program.cs",
+              "RelativeDocumentMoniker": "MeetingPlanner\\Program.cs",
+              "ToolTip": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\Program.cs",
+              "RelativeToolTip": "MeetingPlanner\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-13T06:19:46.379Z",
               "EditorCaption": ""
             }
           ]

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 
 using MudBlazor.Services;
 using MeetingPlanner.Auth;
+using MeetingPlanner.Classes;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,9 +30,14 @@ builder.Services.AddScoped<CustomAuthStateProvider>();
 builder.Services.AddAuthorization(); 
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthenticationStateProvider>(provider => 
-            provider.GetRequiredService<CustomAuthStateProvider>()); 
-
+            provider.GetRequiredService<CustomAuthStateProvider>());
 /*
+builder.Services.Configure<AuthenticationOptions>(options =>
+{
+    options.DefaultAuthenticateScheme = "CustomAuthentication";
+    options.DefaultChallengeScheme = "CustomAuthentication";
+});
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = "CustomAuthentication";
