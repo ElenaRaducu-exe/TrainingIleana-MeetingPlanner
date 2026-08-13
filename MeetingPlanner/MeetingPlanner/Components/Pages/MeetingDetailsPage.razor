@@ -43,8 +43,11 @@
 
 @if(_showNotification == true)
 {
-    <p>Link copied! - @_meetingLink</p>
+    <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">Link copied! - @_meetingLink</MudAlert>
 }
+
+<br />
+<br />
 
 @if (_showBanner == true)
 {
