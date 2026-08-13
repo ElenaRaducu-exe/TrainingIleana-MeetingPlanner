@@ -20,12 +20,6 @@
     Copy meeting link
 </MudButton>
 
-<MudButton Variant="Variant.Filled" 
-           Style="background-color: #C998ED;"
-           @onclick = "@StartTimer">
-    Start timer
-</MudButton>
-
 <br />
 <br />
 
@@ -54,7 +48,7 @@
 
 @if (_showBanner == true)
 {
-    <h4>Time to join your meeting!</h4>
+    <MudAlert Severity="Severity.Success" Variant="Variant.Outlined">Time to join your meeting!</MudAlert>
 }
 
 @code {
@@ -114,7 +108,7 @@
         StateHasChanged();
     }
 
-    public async Task StartTimer()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         dotNetRef = DotNetObjectReference.Create(this);
         module = await _jSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/countdown.js");
