@@ -6,6 +6,8 @@
 @using MeetingPlanner.Services
 @using MeetingPlanner.Models
 
+@implements IDisposable
+
 <MudButton Variant="Variant.Filled" 
            Style="background-color: #C998ED;"
            @onclick = "@NavigateBack">
@@ -16,6 +18,12 @@
            Style="background-color: #C998ED;"
            @onclick = "@CopyMeetingLink">
     Copy meeting link
+</MudButton>
+
+<MudButton Variant="Variant.Filled" 
+           Style="background-color: #C998ED;"
+           @onclick = "@StartTimer">
+    Start timer
 </MudButton>
 
 <br />
@@ -44,6 +52,11 @@
     <p>Link copied! - @_meetingLink</p>
 }
 
+@if (_showBanner == true)
+{
+    <h4>Time to join your meeting!</h4>
+}
+
 @code {
     [Inject]
     private IJSRuntime _jSRuntime { get; set; }
@@ -61,8 +74,11 @@
     public Project? projectItem; 
 
     private string _meetingLink = string.Empty;
+    private bool _showNotification = false;
 
-    private bool _showNotification = false; 
+    private DotNetObjectReference<MeetingDetailsPage>? dotNetRef;
+    private IJSObjectReference? module;
+    private bool _showBanner = false; 
 
     protected override void OnInitialized()
     {
@@ -80,7 +96,6 @@
         _navigationManager.NavigateTo($"/meetings");
     }
 
-
     private async Task CopyMeetingLink()
     {
         await _jSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", _meetingLink);
@@ -95,7 +110,26 @@
 
         await Task.Delay(2000); 
 
-         _showNotification = false;
+        _showNotification = false;
         StateHasChanged();
+    }
+
+    public async Task StartTimer()
+    {
+        dotNetRef = DotNetObjectReference.Create(this);
+        module = await _jSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/countdown.js");
+        await module.InvokeAsync<IJSObjectReference>("startCountdown", dotNetRef, 3);
+    }
+
+    [JSInvokable]
+    public void CountDownFinished()
+    {
+        _showBanner = true;
+        StateHasChanged(); 
+    }
+
+    void IDisposable.Dispose()
+    {
+        dotNetRef?.Dispose();
     }
 }
