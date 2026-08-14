@@ -26,6 +26,11 @@ builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthenticationStateProvider>(provider => 
             provider.GetRequiredService<CustomAuthStateProvider>());
 
+builder.Services.AddAuthorizationCore(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin")); 
+});
+
 /*
 builder.Services.Configure<AuthenticationOptions>(options =>
 {
