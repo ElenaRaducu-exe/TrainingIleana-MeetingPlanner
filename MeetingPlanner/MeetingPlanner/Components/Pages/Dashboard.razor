@@ -42,7 +42,7 @@
             </MudTh>
             <MudTh>ProjectDescription</MudTh>
 
-            <AuthorizeView Roles="Admin,user" Context="authContext">
+            <AuthorizeView Roles="admin,user" Context="authContext">
                 <Authorized>
                     <MudTh>Delete Meeting</MudTh>
                     <MudTh>Edit Meeting</MudTh>
@@ -65,7 +65,7 @@
                 <MudTh>@context.ProjectName</MudTh>
                 <MudTh>@context.ProjectDescription</MudTh>
 
-                <AuthorizeView Roles="Admin" Context="adminContext">
+                <AuthorizeView Roles="admin" Context="adminContext">
                     <Authorized>
                         <MudTh>
                             <MudButton Variant="Variant.Filled" 
@@ -88,7 +88,7 @@
                     </Authorized>
                 </AuthorizeView>
                 
-                <AuthorizeView Roles="Admin, user" Context="editContext">
+                <AuthorizeView Roles="admin, user" Context="editContext">
                     <Authorized>
                         <MudTh>
                             <MudButton Variant="Variant.Filled"

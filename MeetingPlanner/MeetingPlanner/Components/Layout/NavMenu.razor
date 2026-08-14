@@ -15,15 +15,20 @@
         Meetings
     </MudNavLink>
 
-    <MudNavLink Href="/users">
-        Users
-    </MudNavLink>
+    <AuthorizeView Roles="admin">
+        <MudNavLink Href="/users">
+            Users
+        </MudNavLink>
+    </AuthorizeView>
 
     <MudNavLink Href="/login">
         Login
     </MudNavLink>
 
-    <MudNavLink Href="/logout">
-        Logout
-    </MudNavLink>
+    <AuthorizeView>
+        <MudNavLink Href="/logout">
+            Logout
+        </MudNavLink>
+    </AuthorizeView>
+    
 </MudNavMenu>
