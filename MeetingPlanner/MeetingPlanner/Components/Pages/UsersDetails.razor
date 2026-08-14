@@ -1,6 +1,6 @@
 ﻿@page "/users"
 
-@attribute [Authorize(Roles = "admin")]
+@attribute [Authorize(Policy = "AdminOnly")]
 
 <h3>Users Details</h3>
 
@@ -9,21 +9,21 @@
 @using MeetingPlanner.Auth
 @using Microsoft.AspNetCore.Authorization
 
-<table class="table">
-    <tr class="tr-row">
-        <th class="th-column">Username</th>
-        <th class="th-column">Password</th>
-        <th class="th-column">Role</th>
-    </tr>
-    @foreach(var user in users)
-    {
-        <tr class="tr-row">
-            <th class="th-column">@user.Username</th>
-            <th class="th-column">@user.Password</th>
-            <th class="th-column">@user.Role</th>
-        </tr>
-    }
-</table>
+<MudTable 
+    T="AppUser"
+    Items="@users">
+    <HeaderContent>
+        <MudTh>Username</MudTh>
+        <MudTh>Password</MudTh>
+        <MudTh>Role</MudTh>
+    </HeaderContent>
+
+    <RowTemplate>
+        <MudTh>@context.Username</MudTh>
+        <MudTh>@context.Password</MudTh>
+        <MudTh>@context.Role</MudTh>
+    </RowTemplate>
+</MudTable>
 
 @code {
     [Inject]
