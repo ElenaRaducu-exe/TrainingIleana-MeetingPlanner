@@ -16,23 +16,51 @@
         <MudTh>Username</MudTh>
         <MudTh>Password</MudTh>
         <MudTh>Role</MudTh>
+        <MudTh>Deactivate user</MudTh>
     </HeaderContent>
 
     <RowTemplate>
         <MudTh>@context.Username</MudTh>
         <MudTh>@context.Password</MudTh>
         <MudTh>@context.Role</MudTh>
+
+        <MudTh>
+            <MudButton Variant="Variant.Filled"
+                       Style="background-color: #C998ED;"
+                       @onclick="@(() => DeactivateUser(context.Username))">
+                       Deactivate
+            </MudButton>
+        </MudTh>
     </RowTemplate>
 </MudTable>
+
+<br/>
+<br/>
+
+@if (_messageAlert != null)
+{
+    <MudAlert 
+        Severity="Severity.Warning"
+        Variant="Variant.Outlined">
+        @_messageAlert
+    </MudAlert>
+}
 
 @code {
     [Inject]
     private InMemoryAuthService _authService { get; set; }
 
+    private string _messageAlert = null; 
     public List<AppUser> users = new(); 
 
     protected override void OnInitialized()
     {
         users = _authService.GetUsers(); 
+    }
+
+    private void DeactivateUser(string username)
+    {
+        _messageAlert = "Deactivate user: " + username;
+        StateHasChanged();
     }
 }
