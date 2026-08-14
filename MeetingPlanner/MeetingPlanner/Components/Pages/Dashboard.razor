@@ -41,8 +41,14 @@
                 </MudTableSortLabel>
             </MudTh>
             <MudTh>ProjectDescription</MudTh>
-            <MudTh>Delete Meeting</MudTh>
-            <MudTh>Edit Meeting</MudTh>
+
+            <AuthorizeView Roles="Admin,user" Context="authContext">
+                <Authorized>
+                    <MudTh>Delete Meeting</MudTh>
+                    <MudTh>Edit Meeting</MudTh>
+                </Authorized>
+            </AuthorizeView>
+            
         </HeaderContent>
 
     <RowTemplate>
@@ -58,20 +64,42 @@
                 <MudTh>@context.ProjectId</MudTh>
                 <MudTh>@context.ProjectName</MudTh>
                 <MudTh>@context.ProjectDescription</MudTh>
-                <MudTh>
-                    <MudButton Variant="Variant.Filled" 
-                        Style="background-color: #C998ED;"
-                        @onclick = "@(() => ShowDeleteConfirmation(context.Id))">
-                        Delete
-                    </MudButton>
-                </MudTh>
-                <MudTh>
-                    <MudButton Variant="Variant.Filled" 
-                        Style="background-color: #C998ED;"
-                        @onclick = "@(() => EditMeetingDialog(context))">
-                        Edit
-                    </MudButton>
-                </MudTh>
+
+                <AuthorizeView Roles="Admin" Context="adminContext">
+                    <Authorized>
+                        <MudTh>
+                            <MudButton Variant="Variant.Filled" 
+                                Style="background-color: #C998ED;"
+                                @onclick = "@(() => ShowDeleteConfirmation(context.Id))">
+                                Delete
+                            </MudButton>
+                        </MudTh>
+                    </Authorized>
+                </AuthorizeView>
+
+                <AuthorizeView Roles="user" Context="userContext">
+                    <Authorized>
+                        <MudTh>
+                            <MudButton Variant="Variant.Filled" 
+                               Disabled ="true">
+                               Delete
+                            </MudButton>
+                        </MudTh>
+                    </Authorized>
+                </AuthorizeView>
+                
+                <AuthorizeView Roles="Admin, user" Context="editContext">
+                    <Authorized>
+                        <MudTh>
+                            <MudButton Variant="Variant.Filled"
+                               Style="background-color: #C998ED;"
+                               @onclick="@(() => EditMeetingDialog(context))">
+                                Edit
+                            </MudButton>
+                        </MudTh>
+                    </Authorized>
+                </AuthorizeView>
+                
     </RowTemplate>
 </MudTable>
 
