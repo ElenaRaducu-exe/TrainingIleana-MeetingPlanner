@@ -80,14 +80,14 @@
                 Participants = _newMeetingModel.ConvertToList()
             };
 
-        _meetingService.AddMeetingAsync(_newMeeting);
+        await _meetingService.AddMeetingAsync(_newMeeting);
         
         var parameters = new DialogParameters
         {
             {nameof(NewMeetingDetailsDialog.meeting), _newMeeting}
         };
 
-        _dialogService.ShowAsync<NewMeetingDetailsDialog>("Meeting details", parameters);
+        await _dialogService.ShowAsync<NewMeetingDetailsDialog>("Meeting details", parameters);
         //_navigation.NavigateTo("/meetings");
         _mudDialog.Close(DialogResult.Ok(true)); 
     }

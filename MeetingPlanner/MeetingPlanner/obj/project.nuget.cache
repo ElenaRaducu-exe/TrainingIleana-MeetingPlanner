@@ -1,25 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "QMcJbaKjekQ=",
+  "dgSpecHash": "nmxsAqxamvk=",
   "success": true,
   "projectFilePath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elenar\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.11\\microsoft.aspnetcore.app.internal.assets.10.0.11.nupkg.sha512",
-    "C:\\Users\\elenar\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\10.0.10\\microsoft.aspnetcore.components.authorization.10.0.10.nupkg.sha512",
     "C:\\Users\\elenar\\.nuget\\packages\\mudblazor\\9.8.0\\mudblazor.9.8.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1510",
-      "level": "Warning",
-      "message": "PackageReference Microsoft.AspNetCore.Components.Authorization will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.",
-      "projectPath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\00_Training Ileana\\Frontend - Blazor fundamentals\\TrainingIleana-MeetingPlanner\\MeetingPlanner\\MeetingPlanner\\MeetingPlanner.csproj",
-      "libraryId": "Microsoft.AspNetCore.Components.Authorization",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

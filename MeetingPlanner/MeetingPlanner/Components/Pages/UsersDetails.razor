@@ -5,7 +5,6 @@
 <h3>Users Details</h3>
 
 @using MeetingPlanner.Services
-@using MeetingPlanner.Models
 @using MeetingPlanner.Auth
 @using Microsoft.AspNetCore.Authorization
 
@@ -37,7 +36,7 @@
 <br/>
 <br/>
 
-@if (_messageAlert != null)
+@if (_messageAlert != string.Empty)
 {
     <MudAlert 
         Severity="Severity.Warning"
@@ -48,9 +47,9 @@
 
 @code {
     [Inject]
-    private InMemoryAuthService _authService { get; set; }
+    private InMemoryAuthService _authService { get; set; } 
 
-    private string _messageAlert = null; 
+    private string _messageAlert = string.Empty; 
     public List<AppUser> users = new(); 
 
     protected override void OnInitialized()

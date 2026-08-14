@@ -58,10 +58,6 @@
               "version": "[10.0.11, )",
               "autoReferenced": true
             },
-            "Microsoft.AspNetCore.Components.Authorization": {
-              "target": "Package",
-              "version": "[10.0.10, )"
-            },
             "MudBlazor": {
               "target": "Package",
               "version": "[9.8.0, )"

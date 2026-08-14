@@ -94,7 +94,7 @@
                 Participants = newMeeting.ConvertToList()
             };
 
-        _meetingService.AddMeetingAsync(newMeetingToAdd);
+        await _meetingService.AddMeetingAsync(newMeetingToAdd);
 
 
         await Task.Delay(2000);

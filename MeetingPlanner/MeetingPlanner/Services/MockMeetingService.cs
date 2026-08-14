@@ -121,11 +121,11 @@ namespace MeetingPlanner.Services
             {
                 if(id == meeting.Id)
                 {
-                    return Task.FromResult(meeting);
+                    return Task.FromResult<Meeting?>(meeting);
                 }
             }
 
-            return null;
+            return Task.FromResult<Meeting?>(null);
         }
 
         public Task<List<Meeting>> GetMeetingsByProjectAsync(int projectId)
