@@ -15,22 +15,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddScoped<MeetingsService>();
-builder.Services.AddScoped<ProjectsService>();
-
-builder.Services.AddScoped<MeetingStateService>();
-builder.Services.AddScoped<IMeetingService, MockMeetingService>();
+builder.Services.AddAuthenticationCore();
+builder.Services.AddAuthorization();
 
 // -----------------------------------------------------------------------------------
-builder.Services.AddAuthenticationCore();
-//builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>(); 
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>(); 
 builder.Services.AddScoped<InMemoryAuthService>();
 builder.Services.AddScoped<CustomAuthStateProvider>();
-
-builder.Services.AddAuthorization(); 
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthenticationStateProvider>(provider => 
             provider.GetRequiredService<CustomAuthStateProvider>());
+
 /*
 builder.Services.Configure<AuthenticationOptions>(options =>
 {
@@ -44,6 +39,12 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = "CustomAuthentication";
 });*/
 // -----------------------------------------------------------------------------------
+
+builder.Services.AddScoped<MeetingsService>();
+builder.Services.AddScoped<ProjectsService>();
+
+builder.Services.AddScoped<MeetingStateService>();
+builder.Services.AddScoped<IMeetingService, MockMeetingService>();
 
 // register MudBlazor 
 builder.Services.AddMudServices();
