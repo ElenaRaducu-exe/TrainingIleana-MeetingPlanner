@@ -13,18 +13,22 @@
         <MudTextField 
             @bind-value = "_newMeetingModel.Title"
             Label="Title"
-            Required="true"/>
+            Required="true"
+            RequiredError="Title is required"/>
 
         <MudDatePicker
             @bind-value = "_newMeetingModel.Date"
             Label="Date"
-            Required="true"/>
+            Required="true"
+            RequiredError="Date is required" 
+                       Validation="@ValidateDate" />
 
         <MudSelect 
             T="int"
             @bind-value = "_newMeetingModel.ProjectID"
             Label="ProjectID"
-            Required="true">
+            Required="true"
+            RequiredError="ProjectID is required">
             @foreach (var project in _projects)
             {
                 <MudSelectItem value="@project.Id">
@@ -36,7 +40,8 @@
         <MudTextField 
             @bind-value = "_newMeetingModel.Participants"
             Label="Participants"
-            Required="true"/>
+            Required="true"
+            RequiredError="Participants are required" />
 
     </DialogContent>
 
@@ -46,7 +51,8 @@
         </MudButton>
 
         <MudButton 
-            Color="Color.Primary" 
+            Color="Color.Primary"
+            Disabled="@(!IsFormValid())"
             OnClick="@AddMeeting">Add new meeting
         </MudButton>
     </DialogActions>
@@ -81,7 +87,7 @@
             };
 
         await _meetingService.AddMeetingAsync(_newMeeting);
-        
+
         var parameters = new DialogParameters
         {
             {nameof(NewMeetingDetailsDialog.meeting), _newMeeting}
@@ -91,7 +97,7 @@
         //_navigation.NavigateTo("/meetings");
         _mudDialog.Close(DialogResult.Ok(true)); 
     }
-    
+
     private void Cancel()
     {
         _mudDialog.Cancel();
@@ -100,5 +106,26 @@
     protected override async Task OnInitializedAsync()
     {
         _projects = await _meetingService.GetProjectsAsync();
+    }
+
+    private bool IsFormValid()
+    {
+        if (!string.IsNullOrWhiteSpace(_newMeetingModel.Title) 
+                && !string.IsNullOrWhiteSpace(_newMeetingModel.Participants) 
+                && _newMeetingModel.Date.HasValue 
+                && _newMeetingModel.ProjectID > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private string? ValidateDate(DateTime? dateForm)
+    {
+        if (dateForm.HasValue && dateForm < DateTime.Today)
+        {
+            return "Date cannot be in the past!";
+        }
+        return null; 
     }
 }
